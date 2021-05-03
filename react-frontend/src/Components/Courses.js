@@ -1,7 +1,7 @@
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { Card, Table } from 'react-bootstrap';
-import { faList } from '@fortawesome/free-solid-svg-icons';
+import { ButtonGroup,Button, Card, Table } from 'react-bootstrap';
+import { faEdit, faList, faTrash } from '@fortawesome/free-solid-svg-icons';
 import {axios} from 'axios';
 class Course extends React.Component { 
     constructor(props)
@@ -44,25 +44,32 @@ class Course extends React.Component {
                                 <th>fee</th>
                                 <th>capacity</th>
                                 <th>instructorId</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                         {
                         this.state.course.length===0 ?
                             <tr align="center">
-                                <td colSpan="6"> course Available</td>
+                                <td colSpan="6">No Course Available </td>
                             </tr>:
                             this.state.course.map((course) => (
-                                    <tr key={course.courseId}>
+                                    <tr>
                                         <td>
                                             {course.courseId}
                                         </td>
                                         <td>{course.courseName}</td>
                                         <td>{course.courseDuration}</td>
-                                        <td>{course.fee}</td>
                                         <td>{course.instructor}</td>
+                                        <td>{course.fees}</td>
                                         <td>{course.capacity}</td>
                                         <td>{course.instructorId}</td>
+                                        <td>
+                                            <ButtonGroup>
+                                                <Button size="sm" variant="outline-primary"><FontAwesomeIcon icon={faEdit} /></Button>
+                                                <Button size="sm" variant="outline-danger"><FontAwesomeIcon icon={faTrash} /></Button>
+                                            </ButtonGroup>
+                                        </td>
                                     </tr>
                             ))
                             }
