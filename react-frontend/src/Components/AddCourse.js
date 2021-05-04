@@ -33,7 +33,7 @@ class AddCourse extends React.Component {
         .then(response=>{
             if(response.data != null){
                 this.setState(this.initialState);
-                alert("course added successfully");
+                alert(response.data);
             }
         });
     }

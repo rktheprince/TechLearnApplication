@@ -19,7 +19,7 @@ class Course extends React.Component {
     //         this.setState({course:data});
     //     });
     // }
-
+    //Get All The Courses
     componentDidMount() {
 
         fetch('http://localhost:9090/allCourses')
@@ -61,7 +61,7 @@ class Course extends React.Component {
                         {
                         this.state.course.length===0 ?
                             <tr align="center">
-                                <td colSpan="6">No Course Available </td>
+                                <td colSpan="7">No Course Available </td>
                             </tr>:
                             this.state.course.map((course) => (
                                     <tr>

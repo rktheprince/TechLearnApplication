@@ -2,6 +2,8 @@ import React from 'react';
 import { Navbar,Nav } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import tech from './tech.jpg';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faUser,faSignInAlt} from '@fortawesome/free-solid-svg-icons';
 class NavigationBar extends React.Component {
 
     render() {
@@ -18,7 +20,12 @@ class NavigationBar extends React.Component {
                     <Link to ={"AboutUs"} className="nav-link">AboutUs</Link>
                     <Link to ={"ContactUs"} className="nav-link">ContactUs</Link>
                 </Nav>
+                <ul class="nav navbar-nav navbar-right">  
+      <li><a href="" className="text-white"><FontAwesomeIcon icon={faUser}  />&nbsp;SignUp </a></li>&nbsp;&nbsp;&nbsp; 
+      <li><a href="#" className="text-white"><FontAwesomeIcon icon={faSignInAlt}/>&nbsp;Login</a></li>  
+                </ul>  
             </Navbar>
+
         );
     }
 }
