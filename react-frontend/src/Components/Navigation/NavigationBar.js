@@ -1,13 +1,14 @@
 import React from 'react';
 import { Navbar,Nav } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import tech from './tech.jpg';
 class NavigationBar extends React.Component {
 
     render() {
         return (
             <Navbar bg="dark" variant="dark">
                 <Link to ={""} className="navbar-brand">
-                <img src="C:\Users\Piyush\OneDrive\Desktop\Firstreact\myapp\public\tech.jpg" alt="TechLearn Logo" />TechLearn
+                <img class="rounded-circle" src={tech} style={{height:"25px" ,width:"25px"}} alt="Logo" data-holder-rendered="true" />TechLearn
                 </Link>
     
                 <Nav className="mr-auto">

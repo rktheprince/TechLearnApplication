@@ -29,6 +29,16 @@ class Course extends React.Component {
         .then(data => this.setState({ course:data }));
         
         }
+        //Course Delete (Incomplete)
+        deleteCourse = (courseId) => {
+            axios.delete("http://localhost:9090/deleteCourse"+courseId)
+            .then(response => {
+                if(response.data != null)
+                {
+                    alert("Book Deleted Successfully");
+                }
+            });
+        };
     render() {
         return (
             <Card className="border border-dark bg-dark text-white text-center">
@@ -67,7 +77,7 @@ class Course extends React.Component {
                                         <td>
                                             <ButtonGroup>
                                                 <Button size="sm" variant="outline-primary"><FontAwesomeIcon icon={faEdit} /></Button>
-                                                <Button size="sm" variant="outline-danger"><FontAwesomeIcon icon={faTrash} /></Button>
+                                                <Button size="sm" variant="outline-danger" onClick={this.deleteCourse.bind(this,course.courseId)}><FontAwesomeIcon icon={faTrash} /></Button>
                                             </ButtonGroup>
                                         </td>
                                     </tr>
