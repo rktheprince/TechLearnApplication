@@ -31,11 +31,14 @@ class Course extends React.Component {
         }
         //Course Delete (Incomplete)
         deleteCourse = (courseId) => {
-            axios.delete("http://localhost:9090/deleteCourse"+courseId)
+            axios.delete("http://localhost:9090/deleteCourse/"+courseId)
             .then(response => {
                 if(response.data != null)
                 {
-                    alert("Book Deleted Successfully");
+                    alert(response.data);
+                    this.setState({
+                        courses:this.state.courses.filter(course=>course.courseId != courseId)
+                    });
                 }
             });
         };
@@ -61,7 +64,7 @@ class Course extends React.Component {
                         {
                         this.state.course.length===0 ?
                             <tr align="center">
-                                <td colSpan="7">No Course Available </td>
+                                <td colSpan="8">No Course Available </td>
                             </tr>:
                             this.state.course.map((course) => (
                                     <tr>

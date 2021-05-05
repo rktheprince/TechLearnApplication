@@ -160,8 +160,8 @@ class Author7 extends React.Component{
 export function AboutUsFinal()
 {
     return(
-        <div className="container-fluid">
-            <img src={AboutPic} style={{height: "100%", width:"100%",border: "3px", marginBottom: "7px" }} />
+        <div className="container-fluid" style={{"overflow":"hidden",width:"100vw",margin:"0px",position:"relative",right:"222px"}}>
+            <img src={AboutPic} style={{height: "90%", width:"100vw",border: "3px", marginBottom: "7px"}} />
             <Card className="border border-dark bg-dark text-black text-center alignItems-center">
             <Author1/>
             <Author2/>

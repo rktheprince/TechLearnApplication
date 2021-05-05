@@ -2,7 +2,7 @@ import React from 'react';
  function Footer1()
 {
     return( 
-    <footer class="site-footer" className={'background-black'}>
+    <footer style={{"bottom":"0","position":"relative","border":"10px solid white"}} class="site-footer" className={'background-black'}>
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">
@@ -33,7 +33,7 @@ import React from 'react';
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
-             <div className="text-center text-black">Copyright &copy; {new Date().getFullYear()} All Rights Reserved by TechLearn
+             <div className="text-center text-black" style={{position:"absolute",bottom:"13px",left:"350px"}}>Copyright &copy; {new Date().getFullYear()} All Rights Reserved by TechLearn
             </div>
           </div>
         </div>

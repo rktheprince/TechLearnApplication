@@ -8,6 +8,8 @@ import {AboutUsFinal} from './Components/AboutUs/About';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Welcome from './Components/Welcome';
 import {ContactUsFinal} from './Components/ContactUs/Contact';
+import Register from './Components/Logins/Register';
+import Login from './Components/Logins/Login';
 function App() {
   const marginTop ={
     marginTop:"20px"
@@ -24,6 +26,8 @@ function App() {
             <Route path="/addcourse" exact component={AddCourse}/>
             <Route path="/AboutUs" exact component={AboutUsFinal}/>
             <Route path="/ContactUs" exact component={ContactUsFinal}/>
+            <Route path="/Register" exact component={Register}/>
+            <Route path="/Login" exact component={Login}/>
           </Switch>
          </Col>
         </Row>

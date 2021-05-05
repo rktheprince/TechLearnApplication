@@ -14,15 +14,15 @@ class NavigationBar extends React.Component {
                 </Link>
     
                 <Nav className="mr-auto">
-                    <Link to ={""} className="nav-link">Home</Link>
-                    <Link to ={"addcourse"} className="nav-link">Add Courses</Link>
-                    <Link to ={"course"} className="nav-link">Courses</Link>
-                    <Link to ={"AboutUs"} className="nav-link">AboutUs</Link>
-                    <Link to ={"ContactUs"} className="nav-link">ContactUs</Link>
+                    <Link to ={""} className="nav-link font-weight-bold">Home</Link>
+                    <Link to ={"addcourse"} className="nav-link font-weight-bold">Add Courses</Link>
+                    <Link to ={"course"} className="nav-link font-weight-bold">Courses</Link>
+                    <Link to ={"AboutUs"} className="nav-link font-weight-bold">AboutUs</Link>
+                    <Link to ={"ContactUs"} className="nav-link font-weight-bold">ContactUs</Link>
                 </Nav>
                 <ul class="nav navbar-nav navbar-right">  
-      <li><a href="" className="text-white"><FontAwesomeIcon icon={faUser}  />&nbsp;SignUp </a></li>&nbsp;&nbsp;&nbsp; 
-      <li><a href="#" className="text-white"><FontAwesomeIcon icon={faSignInAlt}/>&nbsp;Login</a></li>  
+      <li><Link to={"Register"} className="text-white"><FontAwesomeIcon icon={faUser}  />&nbsp;SignUp </Link></li>&nbsp;&nbsp;&nbsp; 
+      <li><Link to={"Login"} className="text-white"><FontAwesomeIcon icon={faSignInAlt}/>&nbsp;Login</Link></li>  
                 </ul>  
             </Navbar>
 

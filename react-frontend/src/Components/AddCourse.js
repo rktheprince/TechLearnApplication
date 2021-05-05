@@ -65,7 +65,7 @@ class AddCourse extends React.Component {
             <Card className="border border-dark bg-dark text-white text-center alignItems-center">
                 <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> AddCourse</Card.Header>
 
-                <Form onReset={this.resetCourse} onSubmit={this.submitCourse} id="courseFormId" style={{ width: "30rem" }}>
+                <Form onReset={this.resetCourse} onSubmit={this.submitCourse} id="courseFormId">
                     <Card.Body>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridCourseId">
