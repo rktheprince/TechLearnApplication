@@ -3,30 +3,31 @@ import axios from 'axios';
 import { Card, Form, Button, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare, faSave, faUndo } from '@fortawesome/free-solid-svg-icons';
-class Leaderboard extends React.Component {
+class EnrollStudent extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.initialState;
-        this.leaderChange = this.leaderChange.bind(this);
-        this.submitLeader = this.submitLeader.bind(this);
+        this.EnrollChange = this.EnrollChange.bind(this);
+        this.submitEnroll = this.submitEnroll.bind(this);
     }
     initialState = {
-        userid:'', coursename:'', marks:''
+        courseName:'',phoneNo:'',emiCount:'',course:[]
 
     };
-    resetLeader=()=>{
+    resetEnroll=()=>{
         this.setState(()=>this.initialState);
     }
-    submitLeader = event => {
+    submitEnroll = event => {
         // alert('CourseId:' + this.state.courseId + ',CourseName:' + this.state.courseName + ',courseDuration:' + this.state.courseDuration + ',Instructor:' + this.state.instructor + ',Fee:' + this.state.fee + ',InstructorId:' + this.state.instructorId + ',Capacity:' + this.state.capacity);
         event.preventDefault();
-        const leader = {
-            userid:this.state.userid,
-            coursename:this.state.coursename,
-            marks:this.state.marks,
+        const enroll = {
+            courseName:this.state.courseName,
+            phoneNo:this.state.phoneNo,
+            emiCount:this.state.emiCount,
+            course:this.state.course
         };
 
-        axios.post("http://localhost:9090/createLeaderboard",leader)
+        axios.post("http://localhost:9090/createStudentCourse",enroll)
         .then(response=>{
             if(response.data != null){
                 this.setState(this.initialState);
@@ -51,31 +52,31 @@ class Leaderboard extends React.Component {
     //         .then(data => this.setState({ postId: data.courseId }));
     // }
 
-    leaderChange =event => {
+    EnrollChange =event => {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
     render() {
-        const { userid,coursename,marks } = this.state;
+        const { courseName,phoneNo,emiCount } = this.state;
         return (
             <Card className="border border-dark bg-dark text-white text-center alignItems-center">
-                <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> LeaderBoard</Card.Header>
+                <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> Enroll Student</Card.Header>
 
-                <Form onReset={this.resetLeader} onSubmit={this.submitLeader} id="LeaderFormId" style={{ width: "30rem" }}>
+                <Form onReset={this.resetEnroll} onSubmit={this.submitEnroll} id="EnrollFormId" style={{ width: "30rem" }}>
                     <Card.Body>
                         <Form.Row>
-                            <Form.Group as={Col} controlId="formGridUserId">
-                                <Form.Label>UserId</Form.Label>
-                                <Form.Control required autoComplete="off" type="text" name="userid" placeholder="Enter userid" className={"bg-dark text-white"} value={userid} onChange={this.leaderChange} />
-                            </Form.Group>
                             <Form.Group as={Col} controlId="formGridCourseName">
                                 <Form.Label>CourseName</Form.Label>
-                                <Form.Control required autoComplete="off" type="text" name="coursename" placeholder="Enter course name" className={"bg-dark text-white"} value={coursename} onChange={this.leaderChange} />
+                                <Form.Control required autoComplete="off" type="text" name="courseName" placeholder="Enter course name" className={"bg-dark text-white"} value={courseName} onChange={this.EnrollChange} />
                             </Form.Group>
-                            <Form.Group as={Col} controlId="formGridMarks">
-                                <Form.Label>Marks</Form.Label>
-                                <Form.Control type="text" required autoComplete="off" name="marks" placeholder="Enter Marks" className={"bg-dark text-white"} value={marks} onChange={this.leaderChange} />
+                            <Form.Group as={Col} controlId="formGridPhoneNo">
+                                <Form.Label>PhoneNo</Form.Label>
+                                <Form.Control required autoComplete="off" type="text" name="phoneNo" placeholder="Enter phone no" className={"bg-dark text-white"} value={phoneNo} onChange={this.EnrollChange} />
+                            </Form.Group>
+                            <Form.Group as={Col} controlId="formGridEmiCount">
+                                <Form.Label>EmiCount</Form.Label>
+                                <Form.Control type="text" required autoComplete="off" name="emiCount" placeholder="Enter Emi Count" className={"bg-dark text-white"} value={emiCount} onChange={this.EnrollChange} />
                             </Form.Group>
                         </Form.Row>
                     </Card.Body>
@@ -92,4 +93,4 @@ class Leaderboard extends React.Component {
         );
     }
 }
-export default Leaderboard;
+export default EnrollStudent;

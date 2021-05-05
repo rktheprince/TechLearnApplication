@@ -22,23 +22,23 @@ class LeaderBoardDashboard extends React.Component {
     //Get All The Courses
     componentDidMount() {
 
-        fetch('http://localhost:9090/allLeaderBoard')
+        fetch('http://localhost:9090/viewLeaderboard')
         
         .then(response => response.json())
         
-        .then(data => this.setState({ course:data }));
+        .then(data => this.setState({ leaderBoard:data }));
         
         }
         //Course Delete (Incomplete)
-        deleteLeaderBoard = (userid) => {
-            axios.delete("http://localhost:9090/deleteCourse"+courseId)
-            .then(response => {
-                if(response.data != null)
-                {
-                    alert("Book Deleted Successfully");
-                }
-            });
-        };
+        // deleteLeaderBoard = (userid) => {
+        //     axios.delete("http://localhost:9090/deleteCourse"+courseId)
+        //     .then(response => {
+        //         if(response.data != null)
+        //         {
+        //             alert("Book Deleted Successfully");
+        //         }
+        //     });
+        // };
     render() {
         return (
             <Card className="border border-dark bg-dark text-white text-center">
@@ -52,12 +52,12 @@ class LeaderBoardDashboard extends React.Component {
                                 <th>CourseName</th>
                                 <th>Marks</th>
                                 <th>Certification</th>
-                                <th>Grading</th>                       
+                                <th>Grading</th>                      
                             </tr>
                         </thead>
                         <tbody>
                         {
-                        this.state.course.length===0 ?
+                        this.state.leaderBoard.length===0 ?
                             <tr align="center">
                                 <td colSpan="7">No one took the test </td>
                             </tr>:
@@ -71,12 +71,6 @@ class LeaderBoardDashboard extends React.Component {
                                         <td>{leaderBoard.marks}</td>
                                         <td>{leaderBoard.certification}</td>
                                         <td>{leaderBoard.grading}</td>                                       
-                                        <td>
-                                            <ButtonGroup>
-                                                <Button size="sm" variant="outline-primary"><FontAwesomeIcon icon={faEdit} /></Button>
-                                                <Button size="sm" variant="outline-danger" onClick={this.deleteLeaderBoard.bind(this,leaderBoard.userid)}><FontAwesomeIcon icon={faTrash} /></Button>
-                                            </ButtonGroup>
-                                        </td>
                                     </tr>
                             ))
                             }

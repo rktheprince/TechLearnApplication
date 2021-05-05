@@ -31,16 +31,14 @@ class Login extends React.Component {
         axios.post("http://localhost:9090/login",login)
         .then(response=>{
             if(response.data != null){
-                userFound=true;
-                this.setState(this.initialState);
-                //alert(response.data);
-                
-                
+                //userFound=true;
+                this.setState(this.initialState);   
+                alert(response.data);
+                return this.props.history.push("/");
             }
-            else{
-                this.resetLoginForm();
-                this.setState({"error":"Invalid email and password"});
-            }
+        }).catch((error)=>{
+            console.error("Error"+error);
+
         });
     }
     // componentDidMount() {
@@ -67,11 +65,14 @@ class Login extends React.Component {
             [event.target.name]: event.target.value
         });
     }
-    onSubmit = () => {
-        if(userFound){
-            return  <Redirect  to="http://localhost:3000/AboutUs" />
-        }
-     }
+    // onSubmit = () => {
+    //     if(userFound){
+    //         return this.props.history.push("/");
+    //     }
+    //     else{
+    //         userFound=false;
+    //     }
+    //  };
     render() {
         const {userId, password} = this.state;
         return (
@@ -94,7 +95,7 @@ class Login extends React.Component {
                         </Form.Row>
                     </Card.Body>
                     <Card.Footer style={{ "text-align": "right" }}>
-                        <Button size="sm" variant="success" type="submit" onSubmit={this.onSubmit}>
+                        <Button size="sm" variant="success" type="submit">
                             <FontAwesomeIcon icon={faSave} /> Submit
   </Button>{'  '}
                         <Button size="sm" variant="info" type="reset">

@@ -10,6 +10,12 @@ import Welcome from './Components/Welcome';
 import {ContactUsFinal} from './Components/ContactUs/Contact';
 import Register from './Components/Logins/Register';
 import Login from './Components/Logins/Login';
+import UpdatePass from './Components/Logins/UpdatePassword';
+import LeaderBoard from './Components/Students/LeaderBoardDashBoard';
+import CreateLeaderBoard from './Components/Students/LeaderBoard';
+import Enroll from './Components/Students/EnrollStudent';
+import Eligibile from './Components/Students/CheckEligibility';
+import Attendance from './Components/Students/Attendance';
 function App() {
   const marginTop ={
     marginTop:"20px"
@@ -28,6 +34,12 @@ function App() {
             <Route path="/ContactUs" exact component={ContactUsFinal}/>
             <Route path="/Register" exact component={Register}/>
             <Route path="/Login" exact component={Login}/>
+            <Route path="/UpdatePassword" exact component={UpdatePass}/>
+            <Route path="/LeaderBoardDashBoard" exact component={LeaderBoard}/>
+            <Route path="/LeaderBoard" exact component={CreateLeaderBoard}/>
+            <Route path="/EnrollStudent" exact component={Enroll}/>
+            <Route path="/CheckEligibility" exact component={Eligibile}/>
+            <Route path="/Attendance" exact component={Attendance}/>
           </Switch>
          </Col>
         </Row>

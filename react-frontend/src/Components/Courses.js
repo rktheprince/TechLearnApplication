@@ -1,16 +1,35 @@
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { ButtonGroup,Button, Card, Table } from 'react-bootstrap';
-import { faEdit, faList, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { ButtonGroup,Button, Card, Table, InputGroup } from 'react-bootstrap';
+import { faEdit, faList, faStepBackward, faStepForward, faTrash } from '@fortawesome/free-solid-svg-icons';
 import {axios} from 'axios';
 class Course extends React.Component { 
     constructor(props)
     {
         super(props);
         this.state={
-            course:[]
+            course:[],
+            current:1,
+            next:5
         };
     }
+
+    prevPage=()=>{
+        if(this.state.current>1){
+            this.setState({
+                current:this.state.current-1
+            });
+        }
+    };
+
+    
+    nextPage=()=>{
+        if(this.state.current<= Math.ceil(this.state.course.length/this.state.next)){
+            this.setState({
+                current:this.state.current+1
+            });
+        }
+    };
     // componentDidMount()
     // {
     //     axios.get("http://localhost:9090/allCourses")
@@ -43,6 +62,11 @@ class Course extends React.Component {
             });
         };
     render() {
+        const {course,current,next}=this.state;
+        const lastIndex=current*next;
+        const firstIndex=lastIndex-next;
+        const currentUser=course.slice(firstIndex,lastIndex);
+        const totalPages=course.length/next;
         return (
             <Card className="border border-dark bg-dark text-white text-center">
                 <Card.Header > <FontAwesomeIcon icon={faList} /> Courses</Card.Header>
@@ -62,11 +86,11 @@ class Course extends React.Component {
                         </thead>
                         <tbody>
                         {
-                        this.state.course.length===0 ?
+                        course.length===0 ?
                             <tr align="center">
                                 <td colSpan="8">No Course Available </td>
                             </tr>:
-                            this.state.course.map((course) => (
+                            currentUser.map((course) => (
                                     <tr>
                                         <td>
                                             {course.courseId}
@@ -89,6 +113,25 @@ class Course extends React.Component {
                         </tbody>
                     </Table>
                 </Card.Body>
+                <Card.Footer>
+                    <div style={{"float":"left"}}>
+                            Showing Page {current}
+                    </div>
+                    <div style={{"float":"right"}}>
+                            <InputGroup size="sm">
+                                <InputGroup.Prepend>
+                                <Button type="button" variant="outline-info" disabled={current===1?true:false} onClick={this.prevPage}>
+                                <FontAwesomeIcon icon={faStepBackward} />Prev
+                                </Button>
+                                </InputGroup.Prepend>
+                                <InputGroup.Append>
+                                <Button type="button" variant="outline-info" disabled={current===totalPages?true:false} onClick={this.nextPage}>
+                                <FontAwesomeIcon icon={faStepForward} /> Next
+                                </Button>
+                                </InputGroup.Append>
+                            </InputGroup>
+                    </div>
+                </Card.Footer>
             </Card>
         );
     }

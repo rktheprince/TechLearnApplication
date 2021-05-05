@@ -19,6 +19,12 @@ class NavigationBar extends React.Component {
                     <Link to ={"course"} className="nav-link font-weight-bold">Courses</Link>
                     <Link to ={"AboutUs"} className="nav-link font-weight-bold">AboutUs</Link>
                     <Link to ={"ContactUs"} className="nav-link font-weight-bold">ContactUs</Link>
+                    <Link to ={"UpdatePassword"} className="nav-link font-weight-bold">Update</Link>
+                    <Link to ={"LeaderBoardDashBoard"} className="nav-link font-weight-bold">LeaderBoard</Link>
+                    <Link to ={"LeaderBoard"} className="nav-link font-weight-bold">CreateLeaderBoard</Link>
+                    <Link to ={"EnrollStudent"} className="nav-link font-weight-bold">Enroll</Link>
+                    <Link to ={"CheckEligibility"} className="nav-link font-weight-bold">Eligible</Link>
+                    <Link to ={"Attendance"} className="nav-link font-weight-bold">Attendance</Link>
                 </Nav>
                 <ul class="nav navbar-nav navbar-right">  
       <li><Link to={"Register"} className="text-white"><FontAwesomeIcon icon={faUser}  />&nbsp;SignUp </Link></li>&nbsp;&nbsp;&nbsp; 
