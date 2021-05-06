@@ -32,7 +32,8 @@ public class LoginService {
         if(flag)             
 			return "Login Successful welcome "+login.getUserId();
 		else
-			throw new TechLearnException("Login Unsuccessful, as password does not match with given "+login.getUserId());
+			return "Login UnSuccessful As Wrong Credentials";
+			//throw new TechLearnException("Login Unsuccessful, as password does not match with given "+login.getUserId());
 	}
 	
 	// update a single user
@@ -42,7 +43,8 @@ public class LoginService {
 		UserRegistration user=userRepository.findByLoginId(login.getUserId());
 		 if(user==null)         // when user  does not exist
 		   {
-			   throw new TechLearnException("Sorry! we can't update password as, loginId does not Exist ");
+			   return "Sorry! we can't update password as, loginId does not Exist ";
+			 //throw new TechLearnException("Sorry! we can't update password as, loginId does not Exist ");
 		   }
 		 if (user.getPassword().equals(login.getOldPass()) && user.getLoginId().equals(login.getUserId())) 
 		   { 
@@ -53,9 +55,29 @@ public class LoginService {
 	   
                return login.getUserId()+", your password has been successfully updated";
 		   }
-          
-        	   throw new TechLearnException("Sorry! we can't update password as, "+login.getUserId()+", loginId does not match with password ");
+               return "Sorry! we can't update password as, "+login.getUserId()+", loginId does not match with password ";
+        	  // throw new TechLearnException("Sorry! we can't update password as, "+login.getUserId()+", loginId does not match with password ");
 		        // when password is wrong
+		
+     }
+	public String ForgetPass(Login login)
+	{
+        // update a single user
+		UserRegistration user=userRepository.findByLoginIdAndPhoneNo(login.getUserId(),login.getPhoneNo());
+		 if(user==null)         // when user  does not exist
+		   {
+			   return "Sorry! we can't update password as Credentials does not match ";
+			 //throw new TechLearnException("Sorry! we can't update password as, loginId does not Exist ");
+		   }
+		 else {
+	           user.setOldPass(user.getPassword());
+			   user.setPassword(login.getPassword());
+			   userRepository.save(user);
+		  
+	   
+               return login.getUserId()+", your password has been successfully updated";
+		 }
+		  
 		
      }
 }

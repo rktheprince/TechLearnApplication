@@ -30,11 +30,19 @@ class Login extends React.Component {
 
         axios.post("http://localhost:9090/login",login)
         .then(response=>{
-            if(response.data != null){
+            if(response.data ==="Login Successful welcome "+login.userId ){
                 //userFound=true;
+                console.log(response.data);
                 this.setState(this.initialState);   
                 alert(response.data);
                 return this.props.history.push("/");
+            }
+            else if(response.data ==="Login UnSuccessful As Wrong Credentials" ){
+                //userFound=true;
+                console.log(response.data);
+                this.setState(this.initialState);   
+                alert(response.data);
+                //return this.props.history.push("/");
             }
         }).catch((error)=>{
             console.error("Error"+error);

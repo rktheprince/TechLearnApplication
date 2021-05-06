@@ -13,4 +13,5 @@ public interface UserRegistrationRepository extends CrudRepository<UserRegistrat
 		UserRegistration findByLoginId(String id);
 		UserRegistration findByPhoneNo(String phoneNo);
 		Optional<UserRegistration> findByEmailId(String emailId);
+		UserRegistration findByLoginIdAndPhoneNo(String userId,String phoneNo);
 }

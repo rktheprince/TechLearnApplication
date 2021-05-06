@@ -5,6 +5,7 @@ public class Login {
     private String password;
     private String courseName;
     private String oldPass;
+    private String phoneNo;
     
     public String getOldPass() {
 		return oldPass;
@@ -33,18 +34,28 @@ public class Login {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
 
 	public Login()
     {
         
     }
     
-    public Login(String userId, String password, String courseName,String oldPass) {
+    public Login(String userId, String password, String courseName,String oldPass,String phoneNo) {
 		super();
 		this.userId = userId;
 		this.password = password;
 		this.courseName=courseName;
 		this.oldPass=oldPass;
+		this.phoneNo=phoneNo;
 	}
     
 }

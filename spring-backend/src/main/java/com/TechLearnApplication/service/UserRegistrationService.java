@@ -41,7 +41,8 @@ public class UserRegistrationService {
 		}
 		else 
 		{
-			throw new TechLearnException("Admin already exist......!!!");
+			return "Admin already exist......!!!";
+			//throw new TechLearnException("Admin already exist......!!!");
 		}
 	}
 	
@@ -105,7 +106,8 @@ public class UserRegistrationService {
 		}
 		else
 		{
-		   throw new TechLearnException("user already exist......!!!");
+			return "user already exist......!!!";
+		  // throw new TechLearnException("user already exist......!!!");
 		}
 	}
 	
@@ -192,7 +194,8 @@ public class UserRegistrationService {
           }
         else
           {
-        	  throw new TechLearnException( "Access Denied");
+        	return  "Access Denied";
+        	 // throw new TechLearnException( "Access Denied");
           }
     }
    
@@ -266,7 +269,8 @@ public class UserRegistrationService {
         }
         else
         {
-            throw new TechLearnException( "Course Not found");
+        	return "Course Not found";
+           // throw new TechLearnException( "Course Not found");
         }
     }
 	

@@ -69,7 +69,8 @@ public class StudentCoursesDetailsService {
         int cap=course.getCapacity();
         if (cap==0)
         {
-            throw new TechLearnException( "This Batch is full Please wait for another batch");
+        	return "This Batch is full Please wait for another batch";
+           // throw new TechLearnException( "This Batch is full Please wait for another batch");
         }
         boolean flag=false;
         for(StudentCoursesDetails ss : stu)
@@ -81,7 +82,8 @@ public class StudentCoursesDetailsService {
         }
         if(flag)
         {
-            throw new TechLearnException( "You are Already Registered for this course");
+        	return  "You are Already Registered for this course";
+            //throw new TechLearnException( "You are Already Registered for this course");
         }
         else
         {
@@ -112,16 +114,19 @@ public class StudentCoursesDetailsService {
                 }
                 else 
                 {
-                	throw new TechLearnException("Your attendence is full for the course");
+                	return "Your attendence is full for the course";
+                	//throw new TechLearnException("Your attendence is full for the course");
                 }
              	//to here
              }
              return login.getUserId()+"....Your Attendance has been successfully Updated for "+date;//move from here
         }
-        throw new TechLearnException( login.getUserId()+", loginId does not match with password");
+        return login.getUserId()+", loginId does not match with password";
+        //throw new TechLearnException( login.getUserId()+", loginId does not match with password");
     }
  	
     //student Courses Enrolled
+    /// profilepage api
     public List<StudentCoursesDetails> studentCoursesEnrolled(Courses course) 
     {  
     	List<StudentCoursesDetails> studentList=studentCoursesDetailsRepository.findByCourseNameAndInstructorId(course.getCourseName(),course.getInstructorId());
@@ -146,7 +151,8 @@ public class StudentCoursesDetailsService {
 	       StudentCoursesDetails std=studentCoursesDetailsRepository.findByCourseNameAndLoginId(login.getCourseName(),login.getUserId());
 	       int percentage=((std.getCounter()*100)/std.getDuration());
 	       if(percentage<60)
-	        	throw new TechLearnException ("You are not eligible to take the Exam");
+	    	   return "You are not eligible to take the Exam";
+	        	//throw new TechLearnException ("You are not eligible to take the Exam");
 	       else
 	            return "You are eligible to take the Exam";
 	}
@@ -178,17 +184,20 @@ public class StudentCoursesDetailsService {
     			}
 	            else 
 	            {
-	            	throw new TechLearnException("Your attendence is full for the course");     // full attendence already acquired
+	            	return "Your attendence is full for the course";
+	            	//throw new TechLearnException("Your attendence is full for the course");     // full attendence already acquired
 	            }
     		}
     		else 
     		{
-    			throw new TechLearnException( login.getUserId() + "....Attendance already updated for"+date);  //attendance already registered for the day
+    			return login.getUserId() + "....Attendance already updated for"+date;
+    			//throw new TechLearnException( login.getUserId() + "....Attendance already updated for"+date);  //attendance already registered for the day
     		}
     	}
     	else 
     	{
-    		throw new TechLearnException( "Enter correct User id and Password to update attendance"); // access denied wrong id and password
+    		return "Enter correct User id and Password to update attendance";
+    		//throw new TechLearnException( "Enter correct User id and Password to update attendance"); // access denied wrong id and password
     	}
     }
 }

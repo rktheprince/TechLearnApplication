@@ -58,7 +58,8 @@ public class CourseService {
     	System.out.println(course);
     		if(course.getCapacity()==0)
     		{
-	          	throw new TechLearnException ("Wait for next Batch");
+	          	//throw new TechLearnException ("Wait for next Batch");
+    			return "Wait for next Batch";
     		}
 	        else {
 	        	return "Available Seat "+course.getCapacity();

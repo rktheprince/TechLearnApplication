@@ -26,15 +26,17 @@ public class LeaderboardService {
 	{
 		 
 		 StudentCoursesDetails std=studentCoursesDetailsRepository.findByCourseNameAndLoginId(leaderBoard.getCoursename(),leaderBoard.getUserid());
-		 if(std==null)                  // if user is not in database
-			 throw new TechLearnException("This user is not registered in " + leaderBoard.getCoursename());
+		 if(std==null)   // if user is not in database
+			 return "This user is not registered in " + leaderBoard.getCoursename();
+			// throw new TechLearnException("This user is not registered in " + leaderBoard.getCoursename());
 		 String userName=std.getName();
 		 String certification="";
 		 int points=0;
 		 
 		 int percentage=((std.getCounter()*100)/std.getDuration());
-		 if(percentage<60)            // if attendance is short for giving exam
-			 throw new TechLearnException("This user have not given any exam due to low attendance !! ");
+		 if(percentage<60)  // if attendance is short for giving exam
+			 return "This user have not given any exam due to low attendance !! ";
+			// throw new TechLearnException("This user have not given any exam due to low attendance !! ");
 	        
 		 if(percentage>=60 && percentage <80)
 	        	points+=12;
