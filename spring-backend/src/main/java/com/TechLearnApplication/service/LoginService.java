@@ -1,31 +1,22 @@
-package com.TechLearnApplication.controller;
+package com.TechLearnApplication.service;
 
 import java.util.List;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import com.TechLearnApplication.exception.TechLearnException;
 import com.TechLearnApplication.model.Login;
 import com.TechLearnApplication.model.UserRegistration;
 import com.TechLearnApplication.repository.UserRegistrationRepository;
 
- 
-
-@RestController
-@CrossOrigin(origins="http://localhost:3000")
-public class LoginController {
-    @Autowired
+@Service
+public class LoginService {
+	@Autowired
     private UserRegistrationRepository userRepository;
-   
-    @PostMapping("/login")                   // login validation api and accordingly allowing access
-    private String log(@RequestBody Login login) 
+	
+	// login validation api and accordingly allowing access
+	public String log(Login login) 
     {
         List<UserRegistration> users = userRepository.findAll();
         boolean flag=false;
@@ -42,10 +33,10 @@ public class LoginController {
 			return "Login Successful welcome "+login.getUserId();
 		else
 			throw new TechLearnException("Login Unsuccessful, as password does not match with given "+login.getUserId());
-			//return "Login Unsuccessful";
 	}
-	@PutMapping("/updatePass")
-    public String updateUser(@RequestBody Login login)
+	
+	// update a single user
+	public String updateUser(Login login)
 	{
         // update a single user
 		UserRegistration user=userRepository.findByLoginId(login.getUserId());
@@ -67,5 +58,4 @@ public class LoginController {
 		        // when password is wrong
 		
      }
-
 }

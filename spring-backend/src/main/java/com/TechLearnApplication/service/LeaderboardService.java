@@ -1,14 +1,10 @@
-package com.TechLearnApplication.controller;
+package com.TechLearnApplication.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import com.TechLearnApplication.exception.TechLearnException;
 import com.TechLearnApplication.model.Leaderboard;
@@ -16,18 +12,17 @@ import com.TechLearnApplication.model.StudentCoursesDetails;
 import com.TechLearnApplication.repository.LeaderboardRepository;
 import com.TechLearnApplication.repository.StudentCoursesDetailsRepository;
 
-@RestController
-@CrossOrigin(origins="http://localhost:3000")
-public class LeaderboardController {
+@Service
+public class LeaderboardService {
 	
 	@Autowired
 	StudentCoursesDetailsRepository studentCoursesDetailsRepository;
 	
 	@Autowired
 	LeaderboardRepository leaderboardrepository;
-	 
-	@PostMapping("/createLeaderboard")          // for creating leaderboard
-	public String create(@RequestBody Leaderboard leaderBoard)
+	
+	// for creating leaderboard
+	public String create(Leaderboard leaderBoard)
 	{
 		 
 		 StudentCoursesDetails std=studentCoursesDetailsRepository.findByCourseNameAndLoginId(leaderBoard.getCoursename(),leaderBoard.getUserid());
@@ -85,19 +80,15 @@ public class LeaderboardController {
 	        
 		 return "Result updated";
 	 }
-	 @GetMapping("/viewLeaderboard")
-	    public List<Leaderboard> findAll()
-	    {    
-	        List<Leaderboard> users = leaderboardrepository.findAll();
-	        List<Leaderboard> lb = new ArrayList<>();
-	        for (Leaderboard user : users) 
-	        {
-	            lb.add(new Leaderboard(user.getUserid(),user.getUsername(), user.getCoursename(), user.getMarks(),user.getCertification(),user.getGrading()));
-	        }
-
-	 
-
+	
+	 public List<Leaderboard> findAll()
+	 {    
+		 List<Leaderboard> users = leaderboardrepository.findAll();
+		 List<Leaderboard> lb = new ArrayList<>();
+		 for (Leaderboard user : users) 
+		 {
+			 lb.add(new Leaderboard(user.getUserid(),user.getUsername(), user.getCoursename(), user.getMarks(),user.getCertification(),user.getGrading()));
+		 }
 	        return lb;
-	    }
-
+	 }
 }
