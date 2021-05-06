@@ -145,7 +145,7 @@ public class StudentCoursesDetailsService {
     {
 	       StudentCoursesDetails std=studentCoursesDetailsRepository.findByCourseNameAndLoginId(login.getCourseName(),login.getUserId());
 	       int percentage=((std.getCounter()*100)/std.getDuration());
-	       if(percentage<=60)
+	       if(percentage<60)
 	        	throw new TechLearnException ("You are not eligible to take the Exam");
 	       else
 	            return "You are eligible to take the Exam";
