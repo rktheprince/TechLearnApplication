@@ -1,9 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 import { Card, Form, Button, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare, faSave, faUndo } from '@fortawesome/free-solid-svg-icons';
+import {authenticateUser} from '../../services/index';
 var userFound=true;
 class Login extends React.Component {
     constructor(props) {
@@ -28,26 +30,18 @@ class Login extends React.Component {
 
  
 
-        axios.post("http://localhost:9090/login",login)
-        .then(response=>{
-            if(response.data ==="Login Successful welcome "+login.userId ){
-                //userFound=true;
-                console.log(response.data);
-                this.setState(this.initialState);   
-                alert(response.data);
-                return this.props.history.push("/");
-            }
-            else if(response.data ==="Login UnSuccessful As Wrong Credentials" ){
-                //userFound=true;
-                console.log(response.data);
-                this.setState(this.initialState);   
-                alert(response.data);
-                //return this.props.history.push("/");
-            }
-        }).catch((error)=>{
-            console.error("Error"+error);
+        // axios.post("http://localhost:9090/login",login)
+        // .then(response=>{
+        //     if(response.data != null){
+        //         //userFound=true;
+        //         this.setState(this.initialState);   
+        //         alert(response.data);
+        //         return this.props.history.push("/");
+        //     }
+        // }).catch((error)=>{
+        //     console.error("Error"+error);
 
-        });
+        // });
     }
     // componentDidMount() {
     //     const requestOptions = {
@@ -73,6 +67,19 @@ class Login extends React.Component {
             [event.target.name]: event.target.value
         });
     }
+
+    validateUser = () => {
+        this.props.authenticateUser(this.state.userId, this.state.password);
+        setTimeout(() => {
+            if(this.props.auth.isLoggedIn) {
+                return this.props.history.push("/");
+            } else {
+                this.resetLogin();
+                this.setState({"error":"Invalid email and password"});
+            }
+        }, 500);
+    };
+
     // onSubmit = () => {
     //     if(userFound){
     //         return this.props.history.push("/");
@@ -103,19 +110,30 @@ class Login extends React.Component {
                         </Form.Row>
                     </Card.Body>
                     <Card.Footer style={{ "text-align": "right" }}>
-                        <Button size="sm" variant="success" type="submit">
+                        <Button size="sm" variant="success" type="submit" onClick={this.validateUser}>
                             <FontAwesomeIcon icon={faSave} /> Submit
   </Button>{'  '}
                         <Button size="sm" variant="info" type="reset">
                             <FontAwesomeIcon icon={faUndo} /> Reset
   </Button>{' '}
-  <Button size="sm" variant="info" type="reset">
-                            <FontAwesomeIcon icon={faUndo} /> Forget
-  </Button>
+  <Button size="sm" variant="info" type="reset" onClick={this.resetLogin}>
+                            <FontAwesomeIcon icon={faUndo} /> Forget</Button>
                     </Card.Footer>
                 </Form>
             </Card>
         );
     }
 }
-export default Login;
+const mapStateToProps = state => {
+    return {
+        auth:state.auth
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        authenticateUser: (userId, password) => dispatch(authenticateUser(userId, password))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

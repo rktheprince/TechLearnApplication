@@ -32,8 +32,8 @@ public class LoginService {
         if(flag)             
 			return "Login Successful welcome "+login.getUserId();
 		else
-			return "Login UnSuccessful As Wrong Credentials";
-			//throw new TechLearnException("Login Unsuccessful, as password does not match with given "+login.getUserId());
+			//return "Login UnSuccessful As Wrong Credentials";
+			throw new TechLearnException("Login Unsuccessful, as password does not match with given "+login.getUserId());
 	}
 	
 	// update a single user
