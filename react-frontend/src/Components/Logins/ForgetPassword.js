@@ -64,7 +64,7 @@ class ForgetPassword extends React.Component {
             <Card className="border border-dark bg-dark text-white text-center">
                 <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> Forget Password</Card.Header>
 
-                <Form onReset={this.resetForget} onSubmit={this.submitForget} id="ForgetFormId" style={{ width: "30rem",margin:"auto",marginBottom:"50px"}}>
+                <Form onReset={this.resetForget} onSubmit={this.submitForget} id="ForgetFormId" style={{ width: "30rem",margin:"auto",marginBottom:"50px",height:"40vh"}}>
                     <Card.Body>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridUserId">

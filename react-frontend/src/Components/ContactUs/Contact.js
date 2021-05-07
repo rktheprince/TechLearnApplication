@@ -24,12 +24,12 @@ class Contact extends React.Component {
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label" className="text-white font-weight-bold">Name</label>
                 <input type="name" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Name"/>
-                <p style={{color: "white"}}>We will never share your name with anyone</p>
+                <p style={{color: "white"}}>We will never share your details with anyone</p>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label" className="text-white font-weight-bold">Email</label>
                 <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="Email Address"/>
-                <p style={{color: "white"}}>We will never share your email with anyone</p>
+                
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label" className="text-white font-weight-bold">Query</label>
@@ -44,10 +44,10 @@ class Contact extends React.Component {
 export function ContactUsFinal()
 {
     return(
-        <div style={{height:"82vh"}}>
+        <div style={{height:"91vh"}}>
            <Row>
            <Contact style={{border: "5px solid white"}}/>
-            <img src={ContactPic} style={{ height: "50vh", position: "relative", left: "43%", bottom: "450px",border:"5px solid white"}}></img>
+            <img src={ContactPic} style={{ height: "60vh",width:"45vw" ,position: "relative", left: "43%", bottom: "450px",border:"5px solid white"}}></img>
            </Row>
         </div>
     );

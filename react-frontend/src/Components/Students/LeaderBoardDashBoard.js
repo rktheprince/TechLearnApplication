@@ -44,7 +44,7 @@ class LeaderBoardDashboard extends React.Component {
             <Card className="border border-dark bg-dark text-white text-center">
                 <Card.Header > <FontAwesomeIcon icon={faList} /> LeaderBoard</Card.Header>
                 <Card.Body>
-                    <Table bordered hover striped variant="dark">
+                    <Table bordered hover striped variant="dark" style={{height:"40vh"}}>
                         <thead>
                             <tr>
                                 <th>UserId</th>

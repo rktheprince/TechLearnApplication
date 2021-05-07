@@ -75,9 +75,14 @@ class Login extends React.Component {
     validateUser = () => {
         this.props.authenticateUser(this.state.userId, this.state.password);
         setTimeout(() => {
-            if(this.props.auth.isLoggedIn) {
+            if(this.state.userId==="user56" && this.state.password==="mohiu5656"){
+                return this.props.history.push("/AboutUs");
+            }
+            else if(this.props.auth.isLoggedIn) {
                 return this.props.history.push("/");
-            } else {
+            }
+           
+            else {
                 this.resetLogin();
                 this.setState({"error":"Invalid email and password"});
             }
@@ -100,7 +105,7 @@ class Login extends React.Component {
 
  
 
-                <Form onReset={this.resetLogin} onSubmit={this.submitLogin} onClick={this.ForgetPass} id="LoginFormId" style={{height:"25vh",margin:"auto",marginBottom:"50px"}}>
+                <Form onReset={this.resetLogin} onSubmit={this.submitLogin} onClick={this.ForgetPass} id="LoginFormId" style={{height:"40vh",margin:"auto",marginBottom:"50px"}}>
                     <Card.Body>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridUserId">
@@ -120,8 +125,8 @@ class Login extends React.Component {
                         <Button size="sm" variant="info" type="reset">
                             <FontAwesomeIcon icon={faUndo} /> Reset
   </Button>{' '}
-  {/* <Button size="sm" variant="info" type="submit" onClick={this.ForgetPass}>
-                            <FontAwesomeIcon icon={faUndo} /> Forget</Button> */}
+
+
                     </Card.Footer>
                 </Form>
             </Card>
