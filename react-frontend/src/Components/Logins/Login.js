@@ -71,6 +71,8 @@ class Login extends React.Component {
             [event.target.name]: event.target.value
         });
     }
+    
+  
 
     validateUser = () => {
         this.props.authenticateUser(this.state.userId, this.state.password);
@@ -85,6 +87,7 @@ class Login extends React.Component {
             else {
                 this.resetLogin();
                 this.setState({"error":"Invalid email and password"});
+                alert("error:Invalid email and password");
             }
         }, 500);
     };
@@ -124,7 +127,8 @@ class Login extends React.Component {
   </Button>{'  '}
                         <Button size="sm" variant="info" type="reset">
                             <FontAwesomeIcon icon={faUndo} /> Reset
-  </Button>{' '}
+  </Button>{'  '}
+
 
 
                     </Card.Footer>
