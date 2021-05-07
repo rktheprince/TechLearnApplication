@@ -18,7 +18,7 @@ class NavigationBar extends React.Component {
             <>
                 <div className="mr-auto"></div>
                 <Nav className="mr-auto">
-                    <Link to={""} className="nav-link font-weight-bold">Home</Link>
+                    {/* <Link to={""} className="nav-link font-weight-bold">Home</Link> */}
                     <Link to={"course2"} className="nav-link font-weight-bold">Courses</Link>
                     <Link to={"LeaderBoardDashBoard"} className="nav-link font-weight-bold">LeaderBoard</Link>
                     <Link to={"ForgetPassword"} className="nav-link font-weight-bold">ForgetPassword</Link>
@@ -36,7 +36,7 @@ class NavigationBar extends React.Component {
             <>
                 <Nav className="mr-auto">
 
-                    <Link to={""} className="nav-link font-weight-bold">Home</Link>
+                    {/* <Link to={""} className="nav-link font-weight-bold">Home</Link> */}
                     <Link to={"addcourse"} className="nav-link font-weight-bold">Add Courses</Link>
                     <Link to={"course"} className="nav-link font-weight-bold">Courses</Link>
                     <Link to={"AboutUs"} className="nav-link font-weight-bold">AboutUs</Link>
