@@ -31,7 +31,7 @@ class ForgetPassword extends React.Component {
         .then(response=>{
             if(response.data != null){
                 this.setState(this.initialState);
-                // alert(response.data);
+                 alert(response.data);
                 return this.props.history.push("/Login");
             }
         });
