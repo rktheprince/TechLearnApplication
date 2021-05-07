@@ -6,6 +6,7 @@ import { Card, Form, Button, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare, faSave, faUndo } from '@fortawesome/free-solid-svg-icons';
 import {authenticateUser} from '../../services/index';
+import ForgetPassword from './ForgetPassword';
 var userFound=true;
 class Login extends React.Component {
     constructor(props) {
@@ -19,6 +20,9 @@ class Login extends React.Component {
     };
     resetLogin=()=>{
         this.setState(()=>this.initialState);
+    }
+    ForgetPass=()=>{
+        this.setState(()=>this.ForgetPassword);
     }
     submitLogin = event => {
         // alert('CourseId:' + this.state.courseId + ',CourseName:' + this.state.courseName + ',courseDuration:' + this.state.courseDuration + ',Instructor:' + this.state.instructor + ',Fee:' + this.state.fee + ',InstructorId:' + this.state.instructorId + ',Capacity:' + this.state.capacity);
@@ -35,8 +39,8 @@ class Login extends React.Component {
         //     if(response.data != null){
         //         //userFound=true;
         //         this.setState(this.initialState);   
-        //         alert(response.data);
-        //         return this.props.history.push("/");
+                // alert(response.data);
+                // return this.props.history.push("/");
         //     }
         // }).catch((error)=>{
         //     console.error("Error"+error);
@@ -91,21 +95,21 @@ class Login extends React.Component {
     render() {
         const {userId, password} = this.state;
         return (
-            <Card className="border border-dark bg-dark text-white text-center alignItems-center">
+            <Card className="border border-dark bg-dark text-white text-center">
                 <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> Login</Card.Header>
 
  
 
-                <Form onReset={this.resetLogin} onSubmit={this.submitLogin} id="LoginFormId" style={{ width: "30rem" }}>
+                <Form onReset={this.resetLogin} onSubmit={this.submitLogin} onClick={this.ForgetPass} id="LoginFormId" style={{height:"25vh",margin:"auto",marginBottom:"50px"}}>
                     <Card.Body>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridUserId">
                                 <Form.Label>UserId</Form.Label>
-                                <Form.Control required autoComplete="off" type="text" name="userId" placeholder="Enter userId" className={"bg-dark text-white"} value={userId} onChange={this.loginChange} />
+                                <Form.Control  autoComplete="off" type="text" name="userId" placeholder="Enter userId" className={"bg-dark text-white"} value={userId} onChange={this.loginChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control required autoComplete="off" type="text" name="password" placeholder="Enter password" className={"bg-dark text-white"} value={password} onChange={this.loginChange} />
+                                <Form.Control  autoComplete="off" type="text" name="password" placeholder="Enter password" className={"bg-dark text-white"} value={password} onChange={this.loginChange} />
                             </Form.Group>
                         </Form.Row>
                     </Card.Body>
@@ -116,8 +120,8 @@ class Login extends React.Component {
                         <Button size="sm" variant="info" type="reset">
                             <FontAwesomeIcon icon={faUndo} /> Reset
   </Button>{' '}
-  <Button size="sm" variant="info" type="reset" onClick={this.resetLogin}>
-                            <FontAwesomeIcon icon={faUndo} /> Forget</Button>
+  {/* <Button size="sm" variant="info" type="submit" onClick={this.ForgetPass}>
+                            <FontAwesomeIcon icon={faUndo} /> Forget</Button> */}
                     </Card.Footer>
                 </Form>
             </Card>

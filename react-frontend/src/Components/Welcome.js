@@ -5,13 +5,13 @@ class Welcome extends React.Component{
     render()
     {
         return(
-            <Jumbotron className="bg-transparent text-white text-center">
-            <h1 className="text-bold">Welcome To TechLearn</h1>
+            <Jumbotron className="bg-transparent text-white text-center" style={{height:"50vh"}}>
+            <h1 className="text-bold" style={{top:"1px",position:"absolute",left:"350px"}}>Welcome To TechLearn</h1>
             <blockquote className="blackquote mb-0">
-                <p className="text-bold">
+                <p style={{top:"50px",position:"absolute",left:"300px",fontWeight:"600"}}>
                 “Live as if you were to die tomorrow. Learn as if you were to live forever”
                 </p>
-                <footer className="blockquote-footer text-white text-bold">
+                <footer className="blockquote-footer text-white" style={{top:"75px",position:"absolute",left:"720px",fontWeight:"600"}}>
                   Mahatma Gandhi
                 </footer>
             </blockquote>

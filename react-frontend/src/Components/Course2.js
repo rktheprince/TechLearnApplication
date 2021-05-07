@@ -1,9 +1,9 @@
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { ButtonGroup,Button, Card, Table, InputGroup } from 'react-bootstrap';
-import { faEdit, faList, faStepBackward, faStepForward, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Button, Card, Table, InputGroup } from 'react-bootstrap';
+import {faList, faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons';
 import {axios} from 'axios';
-class Course2 extends React.Component { 
+class Course extends React.Component { 
     constructor(props)
     {
         super(props);
@@ -81,14 +81,13 @@ class Course2 extends React.Component {
                                 <th>fee</th>
                                 <th>capacity</th>
                                 <th>instructorId</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                         {
                         course.length===0 ?
                             <tr align="center">
-                                <td colSpan="8">No Course Available </td>
+                                <td colSpan="7">No Course Available </td>
                             </tr>:
                             currentUser.map((course) => (
                                     <tr>
@@ -101,12 +100,6 @@ class Course2 extends React.Component {
                                         <td>{course.fees}</td>
                                         <td>{course.capacity}</td>
                                         <td>{course.instructorId}</td>
-                                        <td>
-                                            <ButtonGroup>
-                                                <Button size="sm" variant="outline-primary"><FontAwesomeIcon icon={faEdit} /></Button>
-                                                <Button size="sm" variant="outline-danger" onClick={this.deleteCourse.bind(this,course.courseId)}><FontAwesomeIcon icon={faTrash} /></Button>
-                                            </ButtonGroup>
-                                        </td>
                                     </tr>
                             ))
                             }
@@ -136,4 +129,4 @@ class Course2 extends React.Component {
         );
     }
 }
-export default Course2;
+export default Course;

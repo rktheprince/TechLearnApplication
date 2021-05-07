@@ -7,6 +7,7 @@ import AddCourse from './Components/AddCourse';
 import {AboutUsFinal} from './Components/AboutUs/About';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Welcome from './Components/Welcome';
+import Course2 from './Components/Course2';
 import {ContactUsFinal} from './Components/ContactUs/Contact';
 import Register from './Components/Logins/Register';
 import Login from './Components/Logins/Login';
@@ -16,6 +17,7 @@ import CreateLeaderBoard from './Components/Students/LeaderBoard';
 import Enroll from './Components/Students/EnrollStudent';
 import Eligibile from './Components/Students/CheckEligibility';
 import Attendance from './Components/Students/Attendance';
+import ForgetPassword from './Components/Logins/ForgetPassword';
 function App() {
   const marginTop ={
     marginTop:"20px"
@@ -40,6 +42,8 @@ function App() {
             <Route path="/EnrollStudent" exact component={Enroll}/>
             <Route path="/CheckEligibility" exact component={Eligibile}/>
             <Route path="/Attendance" exact component={Attendance}/>
+            <Route path="/course2" exact component={Course2}/>
+            <Route path="/ForgetPassword" exact component={ForgetPassword}/>
           </Switch>
          </Col>
         </Row>

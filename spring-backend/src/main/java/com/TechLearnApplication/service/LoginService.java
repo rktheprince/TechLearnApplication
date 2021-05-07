@@ -66,7 +66,7 @@ public class LoginService {
 		UserRegistration user=userRepository.findByLoginIdAndPhoneNo(login.getUserId(),login.getPhoneNo());
 		 if(user==null)         // when user  does not exist
 		   {
-			   return "Sorry! we can't update password as Credentials does not match ";
+			   throw new TechLearnException("Sorry! we can't update password as Credentials does not match ");
 			 //throw new TechLearnException("Sorry! we can't update password as, loginId does not Exist ");
 		   }
 		 else {
