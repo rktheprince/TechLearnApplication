@@ -87,7 +87,7 @@ class Login extends React.Component {
             else {
                 this.resetLogin();
                 this.setState({"error":"Invalid email and password"});
-                alert("error:Invalid email and password");
+               // alert("error:Invalid email and password");
             }
         }, 500);
     };
