@@ -12,10 +12,11 @@ import React from 'react';
           <div class="col-xs-6 col-md-3">
             <h4>Categories</h4>
             <ul class="footer-links">
-              <li><a href="http://TechLearn.com/category/Java/">Java</a></li>
-              <li><a href="http://TechLearn.com/category/front-end-development/">UI Design</a></li>
-              <li><a href="http://TechLearn.com/category/back-end-development/">PHP</a></li>
-              <li><a href="http://TechLearn.com/category/python/">Python</a></li>
+              <li><a href="https://www.w3schools.com/java/" >Java</a></li>
+              <li><a href="https://www.w3schools.com/whatis/" >UI Design</a></li>
+              <li><a href="https://www.w3schools.com/php/DEFAULT.asp" >PHP</a></li>
+              <li><a href="https://www.w3schools.com/python/">Python</a></li>
+             
             </ul>
           </div>
 

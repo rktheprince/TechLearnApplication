@@ -4,7 +4,7 @@ import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 import { Card, Form, Button, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare, faSave, faUndo } from '@fortawesome/free-solid-svg-icons';
+import { faPlusSquare, faSave, faUndo ,faKey} from '@fortawesome/free-solid-svg-icons';
 import {authenticateUser} from '../../services/index';
 import ForgetPassword from './ForgetPassword';
 var userFound=true;
@@ -21,9 +21,9 @@ class Login extends React.Component {
     resetLogin=()=>{
         this.setState(()=>this.initialState);
     }
-    ForgetPass=()=>{
-        this.setState(()=>this.ForgetPassword);
-    }
+    forgetPass() {
+        this.props.history.push("/ForgetPassword");
+      }
     submitLogin = event => {
         // alert('CourseId:' + this.state.courseId + ',CourseName:' + this.state.courseName + ',courseDuration:' + this.state.courseDuration + ',Instructor:' + this.state.instructor + ',Fee:' + this.state.fee + ',InstructorId:' + this.state.instructorId + ',Capacity:' + this.state.capacity);
         event.preventDefault();
@@ -117,7 +117,8 @@ class Login extends React.Component {
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control  autoComplete="off" type="text" name="password" placeholder="Enter password" className={"bg-dark text-white"} value={password} onChange={this.loginChange} />
+                                <Form.Control  autoComplete="off" type="password" name="password" placeholder="Enter password" className={"bg-dark text-white"} value={password} onChange={this.loginChange} />
+                                {/* <Form.Control  autoComplete="off" type="text" name="password" placeholder="Enter password" className={"bg-dark text-white"} value={password} onChange={this.loginChange} /> */}
                             </Form.Group>
                         </Form.Row>
                     </Card.Body>
@@ -127,6 +128,10 @@ class Login extends React.Component {
   </Button>{'  '}
                         <Button size="sm" variant="info" type="reset">
                             <FontAwesomeIcon icon={faUndo} /> Reset
+  </Button>{'  '}
+                        
+                         <Button size="sm" variant="info" type="submit" onClick={this.forgetPass.bind(this)}>
+                            <FontAwesomeIcon icon={faKey} /> Forget Password
   </Button>{'  '}
 
 

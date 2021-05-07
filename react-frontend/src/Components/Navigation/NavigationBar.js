@@ -21,7 +21,7 @@ class NavigationBar extends React.Component {
                     {/* <Link to={""} className="nav-link font-weight-bold">Home</Link> */}
                     <Link to={"course2"} className="nav-link font-weight-bold">Courses</Link>
                     <Link to={"LeaderBoardDashBoard"} className="nav-link font-weight-bold">LeaderBoard</Link>
-                    <Link to={"ForgetPassword"} className="nav-link font-weight-bold">ForgetPassword</Link>
+                    {/* <Link to={"ForgetPassword"} className="nav-link font-weight-bold">ForgetPassword</Link> */}
                     <Link to={"AboutUs"} className="nav-link font-weight-bold">AboutUs</Link>
                     <Link to={"ContactUs"} className="nav-link font-weight-bold">ContactUs</Link>
                 </Nav>

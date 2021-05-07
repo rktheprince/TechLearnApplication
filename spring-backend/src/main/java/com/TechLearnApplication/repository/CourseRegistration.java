@@ -16,4 +16,5 @@ public interface CourseRegistration extends CrudRepository<Courses,Long>  {
 	 List<Courses> findAll();
 	 List<Courses> findByInstructorId(String instructorId);
 	 Optional<Courses> findByCourseId(Long courseId);
+	 String deleteByCourseId(Long courseId);
 }
