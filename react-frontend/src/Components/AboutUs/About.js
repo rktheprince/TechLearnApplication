@@ -1,12 +1,12 @@
 import React from 'react';
 import Taranjeet from './Taranjeet.jpg';
-import Mohit from './Mohit.jpg';
-import Soumik from './Soumik.jpg';
-import Piyush from './Piyush.jpg';
-import Rohit from './Rohit.jpg';
-import Sayan from './Sayan.jpg';
-import Divyansh from './Divyansh.jpg';
-import AboutPic from './AboutUs.jpg';
+import Mohit from './Mohit.jpeg';
+import Soumik from './Soumik.jpeg';
+import Piyush from './Piyush.jpeg';
+import Rohit from './Rohit.jpeg';
+import Sayan from './Sayan.jpeg';
+import Divyansh from './Divyansh.jpeg';
+import pic from './pic.jpeg';
 import {Card} from 'react-bootstrap';
 class Author1 extends React.Component{
     render(){
@@ -160,8 +160,9 @@ class Author7 extends React.Component{
 export function AboutUsFinal()
 {
     return(
-        <div className="container-fluid" style={{"overflow":"hidden",width:"100vw",margin:"0px",position:"relative",right:"222px"}}>
-            <img src={AboutPic} style={{height: "83vh", width:"99vw",border: "3px", marginBottom: "7px"}} />
+        <div className="container" >
+            <img src={pic} style={{height: 500, width:1100}} />
+            <br/><br/>
             <Card className="border border-dark bg-dark text-black text-center alignItems-center">
             <Author1/>
             <Author2/>
