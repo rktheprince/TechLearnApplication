@@ -30,6 +30,44 @@ class Register extends React.Component {
             dateOfBirth:this.state.dateOfBirth
         };
 
+        let userVal=/^[A-Za-z]+$/g;
+        let mobVal=/^[6-9]{1}[0-9]{9}$/g
+        let genderVal=/^[MFmfOo]{1}$/g
+        let addressVal=/^[A-Za-z0-9/\s]+$/g
+        let addressPinVal=/.*[1-9]{1}[0-9]{5}$/g
+        let aadharVal=/^[2-9]{1}[0-9]{3}\s[0-9]{4}\s[0-9]{4}$/g
+
+        if(!this.state.firstName.match(userVal))
+        {
+            alert("Invalid!! only alphabets are allowed");
+        }
+        else if(!this.state.lastName.match(userVal))
+        {
+            alert("Invalid!! only alphabets are allowed");
+        }
+        else if(!this.state.phoneNo.match(mobVal))
+        {
+            alert("Invalid mobile");
+        }
+        else if(!this.state.gender.match(genderVal))
+        {
+            alert("Check your gender");
+        }
+        else if(!this.state.address.match(addressVal))
+        {
+            alert("enter a valid address");
+        }
+        else if(!this.state.address.match(addressPinVal))
+        {
+            alert("enter a valid pin code");
+        }
+        else if(!this.state.aadhar.match(aadharVal))
+        {
+            alert("enter a valid aadhar number");
+        }
+        else{
+        
+
  
 
         axios.post("http://localhost:9090/createUser",register)
@@ -39,6 +77,7 @@ class Register extends React.Component {
                 alert(response.data);
             }
         });
+    }
     }
     // componentDidMount() {
     //     const requestOptions = {
@@ -85,11 +124,11 @@ class Register extends React.Component {
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridEmailId">
                                 <Form.Label>Email Id</Form.Label>
-                                <Form.Control type="text" required autoComplete="off" name="emailId" placeholder="Enter EmailId" className={"bg-dark text-white"} value={emailId} onChange={this.userChange} />
+                                <Form.Control type="email" required autoComplete="off" name="emailId" placeholder="Enter EmailId" className={"bg-dark text-white"} value={emailId} onChange={this.userChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridPhoneNo">
                                 <Form.Label>Phone Number</Form.Label>
-                                <Form.Control type="number" required autoComplete="off" name="phoneNo" placeholder="Enter phoneNo" className={"bg-dark text-white"} value={phoneNo} onChange={this.userChange} />
+                                <Form.Control type="text" required autoComplete="off" name="phoneNo" placeholder="Enter phoneNo" className={"bg-dark text-white"} value={phoneNo} onChange={this.userChange} />
                             </Form.Group>
                         </Form.Row>
                         <Form.Row>
@@ -105,7 +144,7 @@ class Register extends React.Component {
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridGender">
                                 <Form.Label>Gender</Form.Label>
-                                <Form.Control type="text" required autoComplete="off" name="gender" placeholder="Enter M for male and F for female" className={"bg-dark text-white"} value={gender} onChange={this.userChange} />
+                                <Form.Control type="text" required autoComplete="off" name="gender" placeholder="Enter M/F/O" className={"bg-dark text-white"} value={gender} onChange={this.userChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridDateOfBirth">
                                 <Form.Label>Date Of Birth</Form.Label>
