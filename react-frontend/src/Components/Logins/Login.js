@@ -16,7 +16,7 @@ class Login extends React.Component {
         this.submitLogin = this.submitLogin.bind(this);
     }
     initialState = {
-        userId:'', password:'', type: 'text'
+        userId:'', password:'', type: 'password'
     };
     resetLogin=()=>{
         this.setState(()=>this.initialState);
