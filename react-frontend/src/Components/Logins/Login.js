@@ -4,7 +4,7 @@ import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 import { Card, Form, Button, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare, faSave, faUndo ,faKey} from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash, faPlusSquare, faSave, faUndo ,faKey} from '@fortawesome/free-solid-svg-icons';
 import {authenticateUser} from '../../services/index';
 import ForgetPassword from './ForgetPassword';
 var userFound=true;
@@ -16,7 +16,7 @@ class Login extends React.Component {
         this.submitLogin = this.submitLogin.bind(this);
     }
     initialState = {
-        userId:'', password:''
+        userId:'', password:'', type: 'text'
     };
     resetLogin=()=>{
         this.setState(()=>this.initialState);
@@ -72,8 +72,11 @@ class Login extends React.Component {
         });
     }
     
+    handleClick = () => this.setState(({type}) => ({
+        type: type === 'text' ? 'password' : 'text'
+      }))
+    
   
-
     validateUser = () => {
         this.props.authenticateUser(this.state.userId, this.state.password);
             setTimeout(() => {
@@ -118,7 +121,8 @@ class Login extends React.Component {
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control  autoComplete="off" type="password" name="password" placeholder="Enter password" className={"bg-dark text-white"} value={password} onChange={this.loginChange} />
+                                <Form.Control  autoComplete="off" type={this.state.type} name="password" placeholder="Enter password" className={"bg-dark text-white"} value={password} onChange={this.loginChange} />
+                                <span className="password__show" style={{position: "absolute", top: "38px", left: "200px", cursor: "pointer"}} onClick={this.handleClick}>{this.state.type === 'text' ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/>}</span>
                                 {/* <Form.Control  autoComplete="off" type="text" name="password" placeholder="Enter password" className={"bg-dark text-white"} value={password} onChange={this.loginChange} /> */}
                             </Form.Group>
                         </Form.Row>
