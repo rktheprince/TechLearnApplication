@@ -21,11 +21,11 @@ class NavigationBar extends React.Component {
                     {/* <Link to={""} className="nav-link font-weight-bold">Home</Link> */}
                     <Link to={"course2"} className="nav-link font-weight-bold">Courses</Link>
                     {/* <Link to={"ForgetPassword"} className="nav-link font-weight-bold">ForgetPassword</Link> */}
-                    <Link to={"AboutUs"} className="nav-link font-weight-bold">AboutUs</Link>
-                    <Link to={"ContactUs"} className="nav-link font-weight-bold">ContactUs</Link>
+                    <Link to={"AboutUs"} className="nav-link font-weight-bold">About Us</Link>
+                    <Link to={"ContactUs"} className="nav-link font-weight-bold">Contact Us</Link>
                 </Nav>
                 <Nav className="navbar-right">
-                    <Link to={"Register"} className="text-white"><FontAwesomeIcon icon={faUser} />&nbsp;SignUp </Link>'   '
+                    <Link to={"Register"} className="text-white"><FontAwesomeIcon icon={faUser} />&nbsp;Sign Up </Link>'   '
                         <Link to={"Login"} className="text-white"><FontAwesomeIcon icon={faSignInAlt} />&nbsp;Login</Link>
                 </Nav>
             </>
@@ -59,7 +59,7 @@ class NavigationBar extends React.Component {
                     {/* <Link to={""} className="nav-link font-weight-bold">Home</Link> */}
                     <Link to={"addcourse"} className="nav-link font-weight-bold">Add Courses</Link>
                     <Link to={"course"} className="nav-link font-weight-bold">Courses</Link>
-                    <Link to={"LeaderBoardDashBoard"} className="nav-link font-weight-bold">LeaderBoard</Link>
+                    <Link to={"LeaderBoardDashBoard"} className="nav-link font-weight-bold">Leaderboard</Link>
                     <Link to={"LeaderBoard"} className="nav-link font-weight-bold">Create Leaderboard</Link>
                     <Link to={"AboutUs"} className="nav-link font-weight-bold">About Us</Link>
                     <Link to={"ContactUs"} className="nav-link font-weight-bold">Contact Us</Link>

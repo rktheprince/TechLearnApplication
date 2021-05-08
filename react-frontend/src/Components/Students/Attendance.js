@@ -63,7 +63,7 @@ class UpdateAttendance extends React.Component {
             <Card className="border border-dark bg-dark text-white text-center alignItems-center">
                 <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> Attendance Student</Card.Header>
 
-                <Form onReset={this.resetAttendance} onSubmit={this.submitAttendance} id="AttendanceFormId" style={{ width: "30rem" }}>
+                <Form onReset={this.resetAttendance} onSubmit={this.submitAttendance} id="AttendanceFormId" style={{ width: "30rem" ,margin:"auto",marginBottom:"54px",height:"40vh"}}>
                     <Card.Body>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridUserId">

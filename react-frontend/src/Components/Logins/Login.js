@@ -108,21 +108,21 @@ class Login extends React.Component {
         const {userId, password} = this.state;
         return (
             <Card className="border border-dark bg-dark text-white text-center">
-                <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> Login</Card.Header>
+                <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> Log In</Card.Header>
 
  
 
-                <Form onReset={this.resetLogin} onSubmit={this.submitLogin} onClick={this.ForgetPass} id="LoginFormId" style={{height:"40vh",margin:"auto",marginBottom:"50px"}}>
+                <Form onReset={this.resetLogin} onSubmit={this.submitLogin} onClick={this.ForgetPass} id="LoginFormId" style={{height:"42vh",margin:"auto",marginBottom:"50px"}}>
                     <Card.Body>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridUserId">
-                                <Form.Label>UserId</Form.Label>
+                                <Form.Label>User Id</Form.Label>
                                 <Form.Control  autoComplete="off" type="text" name="userId" placeholder="Enter userId" className={"bg-dark text-white"} value={userId} onChange={this.loginChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridPassword">
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control  autoComplete="off" type={this.state.type} name="password" placeholder="Enter password" className={"bg-dark text-white"} value={password} onChange={this.loginChange} />
-                                <span className="password__show" style={{position: "absolute", top: "38px", left: "200px", cursor: "pointer"}} onClick={this.handleClick}>{this.state.type === 'text' ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/>}</span>
+                                <span className="password__show" style={{position: "absolute", top: "38px", left: "180px", cursor: "pointer"}} onClick={this.handleClick}>{this.state.type === 'text' ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/>}</span>
                                 {/* <Form.Control  autoComplete="off" type="text" name="password" placeholder="Enter password" className={"bg-dark text-white"} value={password} onChange={this.loginChange} /> */}
                             </Form.Group>
                         </Form.Row>

@@ -48,18 +48,21 @@ class Course2 extends React.Component {
         .then(data => this.setState({ course:data }));
         
         }
-        //Course Delete (Incomplete)
+
+
         deleteCourse = (courseId) => {
-            axios.delete("http://localhost:9090/deleteCourse/"+courseId)
-            .then(response => {
-                if(response.data != null)
-                {
-                    alert(response.data);
-                    this.setState({
-                        courses:this.state.courses.filter(course=>course.courseId != courseId)
-                    });
-                }
-            });
+            // axios.delete("http://localhost:9090/deleteCourse/"+courseId)
+            // .then(response => {
+            //     if(response.data != null)
+            //     {
+            //         alert(response.data);
+            //         this.setState({
+            //             courses:this.state.courses.filter(course=>course.courseId != courseId)
+            //         });
+            //     }
+            // });
+            alert(courseId);
+           
         };
     render() {
         const {course,current,next}=this.state;
@@ -74,13 +77,13 @@ class Course2 extends React.Component {
                     <Table bordered hover striped variant="dark">
                         <thead>
                             <tr>
-                                <th>courseId</th>
-                                <th>courseName</th>
-                                <th>courseDuration</th>
-                                <th>instructor</th>
-                                <th>fee</th>
-                                <th>capacity</th>
-                                <th>instructorId</th>
+                                <th>Course Id</th>
+                                <th>Course Name</th>
+                                <th>Course Duration</th>
+                                <th>Instructor</th>
+                                <th>Fee</th>
+                                <th>Capacity</th>
+                                <th>Instructor Id</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

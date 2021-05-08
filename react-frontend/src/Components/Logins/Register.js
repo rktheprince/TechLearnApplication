@@ -76,15 +76,15 @@ class Register extends React.Component {
                     <Card.Body>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridFirstName">
-                                <Form.Label>FirstName</Form.Label>
+                                <Form.Label>First Name</Form.Label>
                                 <Form.Control required autoComplete="off" type="text" name="firstName" placeholder="Enter first name" className={"bg-dark text-white"} value={firstName} onChange={this.userChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridLastName">
-                                <Form.Label>LastName</Form.Label>
+                                <Form.Label>Last Name</Form.Label>
                                 <Form.Control required autoComplete="off" type="text" name="lastName" placeholder="Enter last name" className={"bg-dark text-white"} value={lastName} onChange={this.userChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridEmailId">
-                                <Form.Label>EmailId</Form.Label>
+                                <Form.Label>Email Id</Form.Label>
                                 <Form.Control type="text" required autoComplete="off" name="emailId" placeholder="Enter EmailId" className={"bg-dark text-white"} value={emailId} onChange={this.userChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridPhoneNo">

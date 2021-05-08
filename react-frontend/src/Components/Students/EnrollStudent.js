@@ -63,19 +63,19 @@ class EnrollStudent extends React.Component {
             <Card className="border border-dark bg-dark text-white text-center alignItems-center">
                 <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> Enroll Student</Card.Header>
 
-                <Form onReset={this.resetEnroll} onSubmit={this.submitEnroll} id="EnrollFormId" style={{ width: "30rem" }}>
+                <Form onReset={this.resetEnroll} onSubmit={this.submitEnroll} id="EnrollFormId" style={{ width: "30rem" ,margin:"auto",marginBottom:"54px",height:"40vh"}}>
                     <Card.Body>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridCourseName">
-                                <Form.Label>CourseName</Form.Label>
+                                <Form.Label>Course Name</Form.Label>
                                 <Form.Control required autoComplete="off" type="text" name="courseName" placeholder="Enter course name" className={"bg-dark text-white"} value={courseName} onChange={this.EnrollChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridPhoneNo">
-                                <Form.Label>PhoneNo</Form.Label>
+                                <Form.Label>Phone No</Form.Label>
                                 <Form.Control required autoComplete="off" type="text" name="phoneNo" placeholder="Enter phone no" className={"bg-dark text-white"} value={phoneNo} onChange={this.EnrollChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridEmiCount">
-                                <Form.Label>EmiCount</Form.Label>
+                                <Form.Label>Emi Count</Form.Label>
                                 <Form.Control type="text" required autoComplete="off" name="emiCount" placeholder="Enter Emi Count" className={"bg-dark text-white"} value={emiCount} onChange={this.EnrollChange} />
                             </Form.Group>
                         </Form.Row>

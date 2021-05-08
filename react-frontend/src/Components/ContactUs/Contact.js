@@ -19,7 +19,7 @@ class Contact extends React.Component {
      render(){
     return (
         <div style={{ width: "40%", border: "5px solid white", padding: "20px", borderRadius: "25px"}}>
-            <h1 style={{color: "white"}}>Contact US</h1>
+            <h1 style={{color: "white"}}>Contact Us</h1>
             <form onSubmit={this.sendEmail}>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label" className="text-white font-weight-bold">Name</label>

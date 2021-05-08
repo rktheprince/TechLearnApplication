@@ -63,7 +63,7 @@ class UpdatePassword extends React.Component {
             <Card className="border border-dark bg-dark text-white text-center alignItems-center">
                 <Card.Header><FontAwesomeIcon icon={faPlusSquare} />Update Password</Card.Header>
 
-                <Form onReset={this.resetPassword} onSubmit={this.submitPassword} id="PasswordFormId" style={{ width: "30rem" }}>
+                <Form onReset={this.resetPassword} onSubmit={this.submitPassword} id="PasswordFormId" style={{ width: "30rem" ,margin:"auto",marginBottom:"54px",height:"40vh"}}>
                     <Card.Body>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridUserId">
@@ -71,7 +71,7 @@ class UpdatePassword extends React.Component {
                                 <Form.Control required autoComplete="off" type="text" name="userId" placeholder="Enter user Id" className={"bg-dark text-white"} value={userId} onChange={this.PasswordChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridPassword">
-                                <Form.Label>Password</Form.Label>
+                                <Form.Label>New Password</Form.Label>
                                 <Form.Control required autoComplete="off" type="text" name="password" placeholder="Enter new password" className={"bg-dark text-white"} value={password} onChange={this.PasswordChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridOldPassword">

@@ -74,13 +74,13 @@ class Course extends React.Component {
                     <Table bordered hover striped variant="dark">
                         <thead>
                             <tr>
-                                <th>courseId</th>
-                                <th>courseName</th>
-                                <th>courseDuration</th>
-                                <th>instructor</th>
-                                <th>fee</th>
-                                <th>capacity</th>
-                                <th>instructorId</th>
+                                <th>Course Id</th>
+                                <th>Course Name</th>
+                                <th>Course Duration</th>
+                                <th>Instructor</th>
+                                <th>Fee</th>
+                                <th>Capacity</th>
+                                <th>Instructor Id</th>
                             </tr>
                         </thead>
                         <tbody>

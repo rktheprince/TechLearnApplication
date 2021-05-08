@@ -63,7 +63,7 @@ class CheckEligibility extends React.Component {
             <Card className="border border-dark bg-dark text-white text-center alignItems-center">
                 <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> Eligibility Student</Card.Header>
 
-                <Form onReset={this.resetEligibility} onSubmit={this.submitEligibility} id="EligibilityFormId" style={{ width: "30rem" }}>
+                <Form onReset={this.resetEligibility} onSubmit={this.submitEligibility} id="EligibilityFormId" style={{ width: "30rem" } }>
                     <Card.Body>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridUserId">

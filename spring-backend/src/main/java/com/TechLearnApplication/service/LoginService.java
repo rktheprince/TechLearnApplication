@@ -33,7 +33,7 @@ public class LoginService {
 			return login.getUserId();
 		else
 			//return "Login UnSuccessful As Wrong Credentials";
-			throw new TechLearnException("Login Unsuccessful, as password does not match with given "+login.getUserId());
+			throw new TechLearnException("Invalid userId or password");
 	}
 	
 	// update a single user

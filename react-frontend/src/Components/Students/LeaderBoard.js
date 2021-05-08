@@ -60,17 +60,17 @@ class Leaderboard extends React.Component {
         const { userid,coursename,marks } = this.state;
         return (
             <Card className="border border-dark bg-dark text-white text-center alignItems-center">
-                <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> LeaderBoard</Card.Header>
+                <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> Leaderboard</Card.Header>
 
-                <Form onReset={this.resetLeader} onSubmit={this.submitLeader} id="LeaderFormId" style={{ width: "30rem" }}>
+                <Form onReset={this.resetLeader} onSubmit={this.submitLeader} id="LeaderFormId" style={{ width: "30rem" ,margin:"auto",marginBottom:"54px",height:"40vh"}}>
                     <Card.Body>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridUserId">
-                                <Form.Label>UserId</Form.Label>
+                                <Form.Label>User Id</Form.Label>
                                 <Form.Control required autoComplete="off" type="text" name="userid" placeholder="Enter userid" className={"bg-dark text-white"} value={userid} onChange={this.leaderChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridCourseName">
-                                <Form.Label>CourseName</Form.Label>
+                                <Form.Label>Course Name</Form.Label>
                                 <Form.Control required autoComplete="off" type="text" name="coursename" placeholder="Enter course name" className={"bg-dark text-white"} value={coursename} onChange={this.leaderChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridMarks">

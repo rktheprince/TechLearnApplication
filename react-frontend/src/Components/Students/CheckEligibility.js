@@ -63,11 +63,11 @@ class CheckEligibility extends React.Component {
             <Card className="border border-dark bg-dark text-white text-center alignItems-center">
                 <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> Eligibility Student</Card.Header>
 
-                <Form onReset={this.resetEligibility} onSubmit={this.submitEligibility} id="EligibilityFormId" style={{ width: "30rem" }}>
+                <Form onReset={this.resetEligibility} onSubmit={this.submitEligibility} id="EligibilityFormId" style={{ width: "30rem" ,margin:"auto",marginBottom:"54px",height:"40vh"}}>
                     <Card.Body>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridUserId">
-                                <Form.Label>UserId</Form.Label>
+                                <Form.Label>User Id</Form.Label>
                                 <Form.Control required autoComplete="off" type="text" name="userId" placeholder="Enter user Id" className={"bg-dark text-white"} value={userId} onChange={this.EligibilityChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridPassword">
@@ -75,7 +75,7 @@ class CheckEligibility extends React.Component {
                                 <Form.Control required autoComplete="off" type="text" name="password" placeholder="Enter password" className={"bg-dark text-white"} value={password} onChange={this.EligibilityChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridCourseName">
-                                <Form.Label>CourseName</Form.Label>
+                                <Form.Label>Course Name</Form.Label>
                                 <Form.Control type="text" required autoComplete="off" name="courseName" placeholder="Enter Course Name" className={"bg-dark text-white"} value={courseName} onChange={this.EligibilityChange} />
                             </Form.Group>
                         </Form.Row>

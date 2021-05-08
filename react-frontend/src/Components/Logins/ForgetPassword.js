@@ -72,7 +72,7 @@ class ForgetPassword extends React.Component {
                                 <Form.Control required autoComplete="off" type="text" name="userId" placeholder="Enter user Id" className={"bg-dark text-white"} value={userId} onChange={this.ForgetChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridPhoneNo">
-                                <Form.Label>PhoneNo</Form.Label>
+                                <Form.Label>Phone No</Form.Label>
                                 <Form.Control type="text" required autoComplete="off" name="phoneNo" placeholder="Enter Your Phone No" className={"bg-dark text-white"} value={phoneNo} onChange={this.ForgetChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridNewPassword">

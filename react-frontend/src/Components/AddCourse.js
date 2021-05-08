@@ -63,21 +63,21 @@ class AddCourse extends React.Component {
         const { courseId, courseName,courseDuration,instructor,fees,instructorId,capacity } = this.state;
         return (
             <Card className="border border-dark bg-dark text-white text-center alignItems-center">
-                <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> AddCourse</Card.Header>
+                <Card.Header><FontAwesomeIcon icon={faPlusSquare} /> Add Course</Card.Header>
 
                 <Form onReset={this.resetCourse} onSubmit={this.submitCourse} id="courseFormId">
                     <Card.Body>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridCourseId">
-                                <Form.Label>CourseId</Form.Label>
+                                <Form.Label>Course Id</Form.Label>
                                 <Form.Control required autoComplete="off" type="text" name="courseId" placeholder="Enter course Id" className={"bg-dark text-white"} value={courseId} onChange={this.courseChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridCourseName">
-                                <Form.Label>CourseName</Form.Label>
+                                <Form.Label>Course Name</Form.Label>
                                 <Form.Control type="text" required autoComplete="off" name="courseName" placeholder="Enter course Name" className={"bg-dark text-white"} value={courseName} onChange={this.courseChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridCourseDuration">
-                                <Form.Label>CourseDuration</Form.Label>
+                                <Form.Label>Course Duration</Form.Label>
                                 <Form.Control type="text" required autoComplete="off" name="courseDuration" placeholder="Enter course Duration" className={"bg-dark text-white"} value={courseDuration} onChange={this.courseChange} />
                             </Form.Group>
                         </Form.Row>
@@ -97,7 +97,7 @@ class AddCourse extends React.Component {
                                 <Form.Control type="text" required autoComplete="off" name="capacity" placeholder="Enter course Capacity" className={"bg-dark text-white"} value={capacity} onChange={this.courseChange} />
                             </Form.Group>
                             <Form.Group as={Col} controlId="formGridInstructorId">
-                                <Form.Label>InstructorId</Form.Label>
+                                <Form.Label>Instructor Id</Form.Label>
                                 <Form.Control type="text" required autoComplete="off" name="instructorId" placeholder="Enter Instructor Id" className={"bg-dark text-white"} value={instructorId} onChange={this.courseChange} />
                             </Form.Group>
                         </Form.Row>

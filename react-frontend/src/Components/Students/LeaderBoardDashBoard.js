@@ -42,14 +42,14 @@ class LeaderBoardDashboard extends React.Component {
     render() {
         return (
             <Card className="border border-dark bg-dark text-white text-center">
-                <Card.Header > <FontAwesomeIcon icon={faList} /> LeaderBoard</Card.Header>
+                <Card.Header > <FontAwesomeIcon icon={faList} /> Leaderboard</Card.Header>
                 <Card.Body>
                     <Table bordered hover striped variant="dark" style={{height:"40vh"}}>
                         <thead>
                             <tr>
-                                <th>UserId</th>
-                                <th>UserName</th>
-                                <th>CourseName</th>
+                                <th>User Id</th>
+                                <th>User Name</th>
+                                <th>Course Name</th>
                                 <th>Marks</th>
                                 <th>Certification</th>
                                 <th>Grading</th>                      
