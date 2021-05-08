@@ -30,7 +30,7 @@ public class LoginService {
             
         }
         if(flag)             
-			return "Login Successful welcome "+login.getUserId();
+			return login.getUserId();
 		else
 			//return "Login UnSuccessful As Wrong Credentials";
 			throw new TechLearnException("Login Unsuccessful, as password does not match with given "+login.getUserId());
