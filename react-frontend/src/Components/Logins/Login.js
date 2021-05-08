@@ -76,21 +76,22 @@ class Login extends React.Component {
 
     validateUser = () => {
         this.props.authenticateUser(this.state.userId, this.state.password);
-        setTimeout(() => {
-            if(this.state.userId==="user56" && this.state.password==="mohiu5656"){
-                return this.props.history.push("/AboutUs");
-            }
-            else if(this.props.auth.isLoggedIn) {
-                return this.props.history.push("/");
-            }
-           
-            else {
-                this.resetLogin();
-                this.setState({"error":"Invalid email and password"});
-                alert("error:Invalid email and password");
-            }
-        }, 500);
-    };
+            setTimeout(() => {
+                
+                if(this.props.auth.isLoggedIn) {
+                    console.log("hii",this.props.auth.isLoggedIn)
+                    return this.props.history.push("/");
+                }
+               
+                else {
+                    alert("Invalid user ID or password");
+                    this.setState({"error":"Invalid email and password"});
+                    this.resetLogin();
+                    
+                }
+            }, 500);
+        };
+    
 
     // onSubmit = () => {
     //     if(userFound){

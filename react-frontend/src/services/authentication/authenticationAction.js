@@ -12,15 +12,20 @@ export const authenticateUser = (userId, password) => {
         });
         axios.post("http://localhost:9090/login", credentials)
             .then(response => {
-                let token = response.data.token;
+                let token = response.data;
+                console.log(response.data);
                 localStorage.setItem('jwtToken', token);
-                dispatch(success(true));
+                dispatch(success(token));
+               
+
             })
             .catch(error => {
                 dispatch(failure());
             });
     };
+
 };
+
  
 export const logoutUser = () => {
     return dispatch => {
