@@ -1,5 +1,5 @@
-import * as AT from './authenticationTypes';
-import axios from 'axios';
+import * as AT from './authenticationTypes';//if incase AT is not taken as alias,then variable will be called using authenticationtypes.variable
+import axios from 'axios';// backend linking like get,put,post,delete
  
 export const authenticateUser = (userId, password) => {
     const credentials = {
@@ -32,12 +32,12 @@ export const logoutUser = () => {
         dispatch({
             type: AT.LOGOUT_REQUEST
         });
-        localStorage.removeItem('jwtToken');
+        localStorage.removeItem('jwtToken');//jwt
         dispatch(success(false));
     };
 };
  
-const success = isLoggedIn => {
+const success = isLoggedIn => {//if token success payload is keyword
     return {
         type: AT.SUCCESS,
         payload: isLoggedIn

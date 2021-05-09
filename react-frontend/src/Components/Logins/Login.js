@@ -5,7 +5,7 @@ import {Redirect} from 'react-router-dom';
 import { Card, Form, Button, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash, faPlusSquare, faSave, faUndo ,faKey} from '@fortawesome/free-solid-svg-icons';
-import {authenticateUser} from '../../services/index';
+import {authenticateUser} from '../../services/index';//.. to come out from folder ,. to come out from class
 import ForgetPassword from './ForgetPassword';
 var userFound=true;
 class Login extends React.Component {
@@ -31,39 +31,8 @@ class Login extends React.Component {
             userId:this.state.userId,
             password:this.state.password,
         };
-
- 
-
-        // axios.post("http://localhost:9090/login",login)
-        // .then(response=>{
-        //     if(response.data != null){
-        //         //userFound=true;
-        //         this.setState(this.initialState);   
-                // alert(response.data);
-                // return this.props.history.push("/");
-        //     }
-        // }).catch((error)=>{
-        //     console.error("Error"+error);
-
-        // });
     }
-    // componentDidMount() {
-    //     const requestOptions = {
-    //         method: 'POST',
-    //         body: JSON.stringify({CourseId:this.state.courseId,
-    //             CourseName:this.state.courseName,
-    //             courseDuration:this.state.courseDuration,
-    //             Instructor:this.state.instructor,
-    //             Fee:this.state.fee,
-    //             capacity:this.state.capacity,
-    //             instructorId:this.state.instructorId
-    // })
-    //     };
-    //     fetch('http://localhost:9090/createcourse', requestOptions)
-    //         .then(response => response.json())
-    //         .then(data => this.setState({ postId: data.courseId }));
-    // }
-
+    
  
 
     loginChange =event => {
@@ -77,13 +46,13 @@ class Login extends React.Component {
       }))
     
   
-    validateUser = () => {
+    validateUser = () => { // function
         this.props.authenticateUser(this.state.userId, this.state.password);
             setTimeout(() => {
                 
                 if(this.props.auth.isLoggedIn) {
                     console.log("hii",this.props.auth.isLoggedIn)
-                    return this.props.history.push("/");
+                    return this.props.history.push("/");//for redirecting to home page
                 }
                
                 else {

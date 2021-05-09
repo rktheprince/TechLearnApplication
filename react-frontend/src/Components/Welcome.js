@@ -1,10 +1,10 @@
 import React from 'react';
 import Video from './Motivational.mp4';
-import {Jumbotron} from 'react-bootstrap';
-class Welcome extends React.Component{
-    render()
+import {Jumbotron} from 'react-bootstrap';//it used for card element
+class Welcome extends React.Component{//to make class a  react-component
+    render()//communication between  two class component
     {
-        return(
+        return(// this is returning a function
             <Jumbotron className="bg-transparent text-white text-center" style={{height:"50vh"}}>
             <h1 className="text-bold" style={{top:"1px",position:"absolute",left:"350px"}}><emp>Welcome To TechLearn</emp></h1>
             <blockquote className="blackquote mb-0">

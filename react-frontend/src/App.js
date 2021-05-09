@@ -1,11 +1,11 @@
-import './App.css';
-import { Container, Row,Col} from 'react-bootstrap';
+import './App.css';// default css style for predefined app
+import { Container, Row,Col} from 'react-bootstrap';//container is box for storing data just like div tag in html
 import Footer1 from './Components/AboutUs/Footer';
 import Navigation from './Components/Navigation/NavigationBar';
 import Course from './Components/Courses';
 import AddCourse from './Components/AddCourse';
 import {AboutUsFinal} from './Components/AboutUs/About';
-import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';// for defining page link
 import Welcome from './Components/Welcome';
 import Course2 from './Components/Course2';
 import {ContactUsFinal} from './Components/ContactUs/Contact';
@@ -18,7 +18,9 @@ import Enroll from './Components/Students/EnrollStudent';
 import Eligibile from './Components/Students/CheckEligibility';
 import Attendance from './Components/Students/Attendance';
 import ForgetPassword from './Components/Logins/ForgetPassword';
-function App() {
+function App() { //component can also be functional component for function component,
+                 // it do not have render feature because of functional component
+                 // for returning more than one thing wrapping is done
   const marginTop ={
     marginTop:"20px"
   };
@@ -26,7 +28,7 @@ function App() {
     <Router>
       <Navigation />
       <Container>
-        <Row>
+         <Row>  {/*horizontalview */}
          <Col lg={12} style={marginTop}>
           <Switch>
             <Route path="/" exact component={Welcome}/>

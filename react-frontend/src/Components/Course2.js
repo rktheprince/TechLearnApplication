@@ -65,7 +65,7 @@ class Course extends React.Component {
         const {course,current,next}=this.state;
         const lastIndex=current*next;
         const firstIndex=lastIndex-next;
-        const currentUser=course.slice(firstIndex,lastIndex);
+        const currentUser=course.slice(firstIndex,lastIndex);// switch between the pages
         const totalPages=course.length/next;
         return (
             <Card className="border border-dark bg-dark text-white text-center">

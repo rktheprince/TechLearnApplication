@@ -4,14 +4,14 @@ const initialState = {
     isLoggedIn: ''
 };
  
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {//function reducer,switch for checking states
     switch(action.type) {
         case LOGIN_REQUEST:
-        case LOGOUT_REQUEST:
+        case LOGOUT_REQUEST://return is for both login and logout
             return {
-                ...state
+                ...state//... compresses as group
             };
-        case SUCCESS: 
+        case SUCCESS: //return is for both sucess and failure
         case FAILURE: 
             return {
                 isLoggedIn: action.payload
