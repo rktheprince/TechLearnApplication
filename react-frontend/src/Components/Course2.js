@@ -24,7 +24,7 @@ class Course extends React.Component {
 
     
     nextPage=()=>{
-        if(this.state.current<= Math.ceil(this.state.course.length/this.state.next)){
+        if(this.state.current< Math.ceil(this.state.course.length/this.state.next)){
             this.setState({
                 current:this.state.current+1
             });

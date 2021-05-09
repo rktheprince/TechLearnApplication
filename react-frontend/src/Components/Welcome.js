@@ -6,7 +6,7 @@ class Welcome extends React.Component{
     {
         return(
             <Jumbotron className="bg-transparent text-white text-center" style={{height:"50vh"}}>
-            <h1 className="text-bold" style={{top:"1px",position:"absolute",left:"350px"}}>Welcome To TechLearn</h1>
+            <h1 className="text-bold" style={{top:"1px",position:"absolute",left:"350px"}}><emp>Welcome To TechLearn</emp></h1>
             <blockquote className="blackquote mb-0">
                 <p style={{top:"50px",position:"absolute",left:"300px",fontWeight:"600"}}>
                 “Live as if you were to die tomorrow. Learn as if you were to live forever”

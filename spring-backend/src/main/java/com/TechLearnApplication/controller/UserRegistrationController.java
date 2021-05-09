@@ -28,6 +28,7 @@ import com.TechLearnApplication.service.UserRegistrationService;
 @RestController
 @CrossOrigin(origins="http://localhost:3000")
 public class UserRegistrationController {
+		
 	
 		@Autowired
 		UserRegistrationRepository repository;
@@ -116,10 +117,6 @@ public class UserRegistrationController {
         {
         	return userRegistrationService.deleteRegisteredUsers(emailId);
         }
-        @DeleteMapping("/deleteCourse/{courseId}")
-        public String deleteRegisteredCourses(@PathVariable("courseId") Long courseId) 
-        {
-        	return userRegistrationService.deleteRegisteredCourses(courseId);
-        }
+        
         
 }

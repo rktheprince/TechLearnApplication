@@ -259,19 +259,5 @@ public class UserRegistrationService {
         }
     }
     //delete registered course
-    public String deleteRegisteredCourses(Long courseId) 
-    {
-        Optional<Courses> course = courseRepository.findByCourseId(courseId);
-        if(course.isPresent())
-        {
-            courseRepository.delete(course.get());
-            return "Course is Deleted";
-        }
-        else
-        {
-        	return "Course Not found";
-           // throw new TechLearnException( "Course Not found");
-        }
-    }
 	
 }

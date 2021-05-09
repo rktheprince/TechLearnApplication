@@ -44,6 +44,7 @@ function App() {
             <Route path="/Attendance" exact component={Attendance}/>
             <Route path="/course2" exact component={Course2}/>
             <Route path="/ForgetPassword" exact component={ForgetPassword}/>
+            <Route path="/edit/:courseId" exact component={AddCourse}/>
           </Switch>
          </Col>
         </Row>

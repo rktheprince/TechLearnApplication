@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Card, Form, Button, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare, faSave, faUndo } from '@fortawesome/free-solid-svg-icons';
+import { faList, faPlusSquare, faSave, faUndo } from '@fortawesome/free-solid-svg-icons';
 class AddCourse extends React.Component {
     constructor(props) {
         super(props);
@@ -13,6 +13,33 @@ class AddCourse extends React.Component {
     initialState = {
         courseId:'', courseName:'', courseDuration:'', instructor: '', fees:'', capacity:'', instructorId: ''
     };
+
+    componentDidMount(){
+        const courseId=+this.props.match.params.courseId;
+        if(courseId){
+            this.findCourseById(courseId)
+        }
+    }
+
+    findCourseById=(courseId)=>{
+        axios.get("http://localhost:9090/getCourseById/"+courseId)
+        .then(response=>{
+            if(response.data != null)
+            {
+                this.setState({
+                    courseId:response.data.courseId,
+                    courseName:response.data.courseName,
+                    courseDuration:response.data.courseDuration,
+                    instructor:response.data.instructor,
+                    fees:response.data.fees,
+                    capacity:response.data.capacity,
+                    instructorId:response.data.instructorId
+                });
+            }
+        }).catch((error)=>{
+            console.error("Error"+error);
+        });
+    }
     resetCourse=()=>{
         this.setState(()=>this.initialState);
     }
@@ -59,6 +86,9 @@ class AddCourse extends React.Component {
             [event.target.name]: event.target.value
         });
     }
+    courseList=()=>{
+        return this.props.history.push("/course");
+    };
     render() {
         const { courseId, courseName,courseDuration,instructor,fees,instructorId,capacity } = this.state;
         return (
@@ -108,6 +138,9 @@ class AddCourse extends React.Component {
   </Button>{'  '}
                         <Button size="sm" variant="info" type="reset">
                             <FontAwesomeIcon icon={faUndo} /> Reset
+  </Button>{' '}
+  <Button size="sm" variant="info" type="button" onClick={this.courseList.bind()}>
+                            <FontAwesomeIcon icon={faList} /> Course List
   </Button>
                     </Card.Footer>
                 </Form>

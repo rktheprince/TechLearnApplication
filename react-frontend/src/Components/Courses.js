@@ -3,6 +3,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { ButtonGroup,Button, Card, Table, InputGroup } from 'react-bootstrap';
 import { faEdit, faList, faStepBackward, faStepForward, faTrash } from '@fortawesome/free-solid-svg-icons';
 import {axios} from 'axios';
+import { Link } from 'react-router-dom';
 class Course2 extends React.Component { 
     constructor(props)
     {
@@ -24,7 +25,7 @@ class Course2 extends React.Component {
 
     
     nextPage=()=>{
-        if(this.state.current<= Math.ceil(this.state.course.length/this.state.next)){
+        if(this.state.current< Math.ceil(this.state.course.length/this.state.next)){
             this.setState({
                 current:this.state.current+1
             });
@@ -51,17 +52,16 @@ class Course2 extends React.Component {
 
 
         deleteCourse = (courseId) => {
-            // axios.delete("http://localhost:9090/deleteCourse/"+courseId)
-            // .then(response => {
-            //     if(response.data != null)
-            //     {
-            //         alert(response.data);
-            //         this.setState({
-            //             courses:this.state.courses.filter(course=>course.courseId != courseId)
-            //         });
-            //     }
-            // });
-            alert(courseId);
+            axios.delete("http://localhost:9090/getCourseById/"+courseId)
+            .then(response => {
+                if(response.data != null)
+                {
+                    alert(response.data);
+                    this.setState({
+                        courses:this.state.courses.filter(course=>course.courseId != courseId)
+                    });
+                }
+            });
            
         };
     render() {
@@ -106,8 +106,9 @@ class Course2 extends React.Component {
                                         <td>{course.instructorId}</td>
                                         <td>
                                             <ButtonGroup>
-                                                <Button size="sm" variant="outline-primary"><FontAwesomeIcon icon={faEdit} /></Button>
-                                                <Button size="sm" variant="outline-danger" onClick={this.deleteCourse.bind(this,course.courseId)}><FontAwesomeIcon icon={faTrash} /></Button>
+                                                <Link to={"edit/"+course.courseId} className="btn btn-sm btn-outline-primary"><FontAwesomeIcon icon={faEdit} /></Link>{' '}
+                                                {/* <Button size="sm" variant="outline-primary"><FontAwesomeIcon icon={faEdit} /></Button> */}
+                                                {/* <Button size="sm" variant="outline-danger" onClick={this.deleteCourse.bind(this,course.courseId)}><FontAwesomeIcon icon={faTrash} /></Button> */}
                                             </ButtonGroup>
                                         </td>
                                     </tr>
