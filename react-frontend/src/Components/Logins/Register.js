@@ -18,7 +18,7 @@ class Register extends React.Component {
     }
     submitUser = event => {
         // alert('CourseId:' + this.state.courseId + ',CourseName:' + this.state.courseName + ',courseDuration:' + this.state.courseDuration + ',Instructor:' + this.state.instructor + ',Fee:' + this.state.fee + ',InstructorId:' + this.state.instructorId + ',Capacity:' + this.state.capacity);
-        event.preventDefault();
+        event.preventDefault();//page wont be reloaded on submit click
         const register = {
             firstName:this.state.firstName,
             lastName:this.state.lastName,
@@ -29,13 +29,16 @@ class Register extends React.Component {
             gender:this.state.gender,
             dateOfBirth:this.state.dateOfBirth
         };
-
+        // variable can be defined by let or var
+        //let scope ristricted to function
+        //var is of global scope
+        //constant value is fixed
         let userVal=/^[A-Za-z]+$/g;
-        let mobVal=/^[6-9]{1}[0-9]{9}$/g
-        let genderVal=/^[MFmfOo]{1}$/g
-        let addressVal=/^[A-Za-z0-9/\s]+$/g
-        let addressPinVal=/.*[1-9]{1}[0-9]{5}$/g
-        let aadharVal=/^[2-9]{1}[0-9]{3}\s[0-9]{4}\s[0-9]{4}$/g
+        let mobVal=/^[6-9]{1}[0-9]{9}$/g;
+        let genderVal=/^[MFmfOo]{1}$/g;
+        let addressVal=/^[A-Za-z0-9/\s]+$/g;
+        let addressPinVal=/.*[1-9]{1}[0-9]{5}$/g;
+        let aadharVal=/^[2-9]{1}[0-9]{3}\s[0-9]{4}\s[0-9]{4}$/g;
 
         if(!this.state.firstName.match(userVal))
         {
@@ -75,7 +78,9 @@ class Register extends React.Component {
             if(response.data != null){
                 this.setState(this.initialState);
                 alert(response.data);
+                return this.props.history.push("/Login");
             }
+            
         });
     }
     }

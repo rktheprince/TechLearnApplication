@@ -36,7 +36,7 @@ public class UserRegistrationService {
 		UserRegistration user23=repository.findByPhoneNo("8956235256");
 		if(user23==null)
 		{
-	       repository.save(new UserRegistration("Admin", "Bhojwani", "rajesh@gmail.com", "8956235256", "19 shubhash nagar bareilly", "564695","M","20-01-1998","mohiu5656","user56","mohiu5656"));
+	       repository.save(new UserRegistration("Admin", "Bhojwani", "rajesh@gmail.com", "8956235256", "19 shubhash nagar bareilly", "564695","M","1998-01-20","mohiu5656","user56","mohiu5656"));
 		   return "Admin Registered";
 		}
 		else 
@@ -76,7 +76,7 @@ public class UserRegistrationService {
 		 */
 		
 		String[] dateParts=date.split("-");
-		String year=dateParts[2];
+		String year=dateParts[0];
 		char ch[]=year.toCharArray();
 		for(int j=0;j<ch.length;j++)
 		{
@@ -96,7 +96,7 @@ public class UserRegistrationService {
 	            temp /= 10; 
 	    }
 		
-		String userid=userRegistration.getFirstName()+rem+dateParts[0];
+		String userid=userRegistration.getFirstName()+rem+dateParts[2];
 		UserRegistration user23=repository.findByPhoneNo(userRegistration.getPhoneNo());
 		
         if(user23==null) 

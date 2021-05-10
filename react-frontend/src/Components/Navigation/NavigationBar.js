@@ -65,7 +65,7 @@ class NavigationBar extends React.Component {
         );
 
         function Links(x) {// for switing between the links like admin,user
-            if(x==="user56"){
+            if(x==="Admin"){
                 console.log("admin")
                 return adminLinks
             }

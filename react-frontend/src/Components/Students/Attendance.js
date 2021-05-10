@@ -27,7 +27,7 @@ class UpdateAttendance extends React.Component {
             courseName:this.state.courseName
         };
 
-        axios.put("http://localhost:9090/updateAttendance",attendance)
+        axios.put("http://localhost:9090/updateAttendance2",attendance)
         .then(response=>{
             if(response.data != null){
                 this.setState(this.initialState);
