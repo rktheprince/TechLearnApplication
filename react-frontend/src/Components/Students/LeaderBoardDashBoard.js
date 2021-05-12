@@ -8,18 +8,10 @@ class LeaderBoardDashboard extends React.Component {
     {
         super(props);
         this.state={
-            leaderBoard:[]
+            leaderBoard:[]//array
         };
     }
-    // componentDidMount()
-    // {
-    //     axios.get("http://localhost:9090/allCourses")
-    //     .then(response=> response.data)
-    //     .then((data)=>{
-    //         this.setState({course:data});
-    //     });
-    // }
-    //Get All The Courses
+   
     componentDidMount() {
 
         fetch('http://localhost:9090/viewLeaderboard')
@@ -29,16 +21,7 @@ class LeaderBoardDashboard extends React.Component {
         .then(data => this.setState({ leaderBoard:data }));
         
         }
-        //Course Delete (Incomplete)
-        // deleteLeaderBoard = (userid) => {
-        //     axios.delete("http://localhost:9090/deleteCourse"+courseId)
-        //     .then(response => {
-        //         if(response.data != null)
-        //         {
-        //             alert("Book Deleted Successfully");
-        //         }
-        //     });
-        // };
+       
     render() {
         return (
             <Card className="border border-dark bg-dark text-white text-center">

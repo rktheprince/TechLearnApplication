@@ -31,15 +31,7 @@ class Course2 extends React.Component {
             });
         }
     };
-    // componentDidMount()
-    // {
-    //     axios.get("http://localhost:9090/allCourses")
-    //     .then(response=> response.data)
-    //     .then((data)=>{
-    //         this.setState({course:data});
-    //     });
-    // }
-    //Get All The Courses
+
     componentDidMount() {
 
         fetch('http://localhost:9090/allCourses')
@@ -107,8 +99,7 @@ class Course2 extends React.Component {
                                         <td>
                                             <ButtonGroup>
                                                 <Link to={"edit/"+course.courseId} className="btn btn-sm btn-outline-primary"><FontAwesomeIcon icon={faEdit} /></Link>{' '}
-                                                {/* <Button size="sm" variant="outline-primary"><FontAwesomeIcon icon={faEdit} /></Button> */}
-                                                {/* <Button size="sm" variant="outline-danger" onClick={this.deleteCourse.bind(this,course.courseId)}><FontAwesomeIcon icon={faTrash} /></Button> */}
+  
                                             </ButtonGroup>
                                         </td>
                                     </tr>

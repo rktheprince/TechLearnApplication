@@ -65,14 +65,7 @@ class Login extends React.Component {
         };
     
 
-    // onSubmit = () => {
-    //     if(userFound){
-    //         return this.props.history.push("/");
-    //     }
-    //     else{
-    //         userFound=false;
-    //     }
-    //  };
+   
     render() {
         const {userId, password} = this.state;
         return (

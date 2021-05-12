@@ -36,22 +36,7 @@ class ForgetPassword extends React.Component {
             }
         });
     }
-    // componentDidMount() {
-    //     const requestOptions = {
-    //         method: 'POST',
-    //         body: JSON.stringify({CourseId:this.state.courseId,
-    //             CourseName:this.state.courseName,
-    //             courseDuration:this.state.courseDuration,
-    //             Instructor:this.state.instructor,
-    //             Fee:this.state.fee,
-    //             capacity:this.state.capacity,
-    //             instructorId:this.state.instructorId
-    // })
-    //     };
-    //     fetch('http://localhost:9090/createcourse', requestOptions)
-    //         .then(response => response.json())
-    //         .then(data => this.setState({ postId: data.courseId }));
-    // }
+   
 
     ForgetChange =event => {
         this.setState({
